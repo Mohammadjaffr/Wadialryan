@@ -9,14 +9,19 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          orange: '#F97316', // Warm Orange
-          dark: '#1F2937', // Dark Grey for contrast
-          gray: '#F3F4F6', // Subtle Grey
+          orange: '#D4AF37', // Gold/Amber instead of generic orange
+          amber: '#F59E0B',
+          dark: '#0B1120', // Deep Slate/Navy for premium dark look
+          gray: '#F8F9FA',
+          surface: '#1E293B', // Slightly lighter dark for cards
         },
       },
       fontFamily: {
-        sans: ['Tajawal', 'sans-serif'],
+        sans: ['Cairo', 'sans-serif'], // Upgrading to Cairo for a more premium Arabic look
       },
+      boxShadow: {
+        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+      }
     },
   },
   plugins: [],
