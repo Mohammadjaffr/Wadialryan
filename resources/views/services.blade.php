@@ -1,14 +1,14 @@
 <x-layouts.app>
-    <x-slot:title>خدماتنا - وادي الريان للمقاولات</x-slot>
+    <x-slot:title>{{ __('خدماتنا - وادي الريان للمقاولات') }}</x-slot>
     
     <!-- Header -->
     <section class="relative pt-40 pb-24 bg-brand-surface flex items-center justify-center overflow-hidden border-b border-white/5">
         <div class="container mx-auto px-4 text-center relative z-10">
             <div class="mb-4">
-                <span class="inline-block text-brand-orange font-bold tracking-[0.2em] uppercase text-sm mb-2 px-4 py-1 bg-brand-orange/10 rounded-full">مجالات التميز</span>
+                <span class="inline-block text-brand-orange font-bold tracking-[0.2em] uppercase text-sm mb-2 px-4 py-1 bg-brand-orange/10 rounded-full">{{ __('مجالات التميز') }}</span>
             </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">الخدمات الهندسية</h1>
-            <p class="text-lg text-gray-400 max-w-2xl mx-auto font-medium leading-relaxed">نقدم مجموعة شاملة من الخدمات الهندسية والإنشائية التي تلبي كافة متطلباتكم بمهنية عالية وبمعايير استثنائية.</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">{{ __('الخدمات الهندسية') }}</h1>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto font-medium leading-relaxed">{{ __('نقدم مجموعة شاملة من الخدمات الهندسية والإنشائية التي تلبي كافة متطلباتكم بمهنية عالية وبمعايير استثنائية.') }}</p>
         </div>
     </section>
 
@@ -22,27 +22,27 @@
                     <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-surface rounded-2xl text-brand-orange border border-gray-800 mb-6 shadow-sm">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">المقاولات العامة والبناء</h2>
-                    <p class="text-gray-400 leading-relaxed mb-8 text-lg">نقوم بتنفيذ جميع أنواع المشاريع السكنية، التجارية، والصناعية. نعتمد على أحدث التقنيات وأفضل المواد لضمان متانة وجودة البناء في كل مرحلة.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">{{ __('المقاولات العامة والبناء') }}</h2>
+                    <p class="text-gray-400 leading-relaxed mb-8 text-lg">{{ __('نقوم بتنفيذ جميع أنواع المشاريع السكنية، التجارية، والصناعية. نعتمد على أحدث التقنيات وأفضل المواد لضمان متانة وجودة البناء في كل مرحلة.') }}</p>
                     
                     <ul class="space-y-4 font-medium">
                         <li class="flex items-start gap-4 text-gray-300">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange mt-1">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </span>
-                            بناء الفلل والمجمعات السكنية
+                            {{ __('بناء الفلل والمجمعات السكنية') }}
                         </li>
                         <li class="flex items-start gap-4 text-gray-300">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange mt-1">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </span>
-                            تشييد الأبراج والمراكز التجارية
+                            {{ __('تشييد الأبراج والمراكز التجارية') }}
                         </li>
                         <li class="flex items-start gap-4 text-gray-300">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange mt-1">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </span>
-                            أعمال التشطيبات والديكور الداخلي المتكامل
+                            {{ __('أعمال التشطيبات والديكور الداخلي المتكامل') }}
                         </li>
                     </ul>
                 </div>
@@ -64,27 +64,27 @@
                     <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-surface rounded-2xl text-brand-orange border border-gray-800 mb-6 shadow-sm">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">التصميم المعماري والاستشارات</h2>
-                    <p class="text-gray-400 leading-relaxed mb-8 text-lg">نقدم استشارات هندسية وتصاميم معمارية مبتكرة تواكب العصر وتلبي تطلعاتك. فريقنا من المهندسين مستعد لتحويل أفكارك إلى واقع يفوق خيالك.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">{{ __('التصميم المعماري والاستشارات') }}</h2>
+                    <p class="text-gray-400 leading-relaxed mb-8 text-lg">{{ __('نقدم استشارات هندسية وتصاميم معمارية مبتكرة تواكب العصر وتلبي تطلعاتك. فريقنا من المهندسين مستعد لتحويل أفكارك إلى واقع يفوق خيالك.') }}</p>
                     
                     <ul class="space-y-4 font-medium">
                         <li class="flex items-start gap-4 text-gray-300">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange mt-1">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </span>
-                            التصميم المعماري الحديث والكلاسيكي
+                            {{ __('التصميم المعماري الحديث والكلاسيكي') }}
                         </li>
                         <li class="flex items-start gap-4 text-gray-300">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange mt-1">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </span>
-                            التخطيط الحضري وتنسيق المواقع
+                            {{ __('التخطيط الحضري وتنسيق المواقع') }}
                         </li>
                         <li class="flex items-start gap-4 text-gray-300">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange mt-1">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </span>
-                            استخراج التراخيص والإشراف الهندسي
+                            {{ __('استخراج التراخيص والإشراف الهندسي') }}
                         </li>
                     </ul>
                 </div>
@@ -96,27 +96,27 @@
                     <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-surface rounded-2xl text-brand-orange border border-gray-800 mb-6 shadow-sm">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">مشاريع البنية التحتية</h2>
-                    <p class="text-gray-400 leading-relaxed mb-8 text-lg">مشاريع البنية التحتية تعتبر الأساس لأي تطور عمراني. نحن متخصصون في تجهيز الأراضي وشبكات الطرق وتمديدات المياه والصرف الصحي بأعلى مقاييس الاستدامة.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">{{ __('مشاريع البنية التحتية') }}</h2>
+                    <p class="text-gray-400 leading-relaxed mb-8 text-lg">{{ __('مشاريع البنية التحتية تعتبر الأساس لأي تطور عمراني. نحن متخصصون في تجهيز الأراضي وشبكات الطرق وتمديدات المياه والصرف الصحي بأعلى مقاييس الاستدامة.') }}</p>
                     
                     <ul class="space-y-4 font-medium">
                         <li class="flex items-start gap-4 text-gray-300">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange mt-1">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </span>
-                            أعمال الحفر والردم وتسوية الأراضي
+                            {{ __('أعمال الحفر والردم وتسوية الأراضي') }}
                         </li>
                         <li class="flex items-start gap-4 text-gray-300">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange mt-1">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </span>
-                            تمديد شبكات المياه والصرف الصحي
+                            {{ __('تمديد شبكات المياه والصرف الصحي') }}
                         </li>
                         <li class="flex items-start gap-4 text-gray-300">
                             <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange mt-1">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </span>
-                            رصف وسفلتة الطرق وإنارة الشوارع
+                            {{ __('رصف وسفلتة الطرق وإنارة الشوارع') }}
                         </li>
                     </ul>
                 </div>

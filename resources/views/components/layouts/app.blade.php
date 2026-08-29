@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title ?? 'وادي الريان للمقاولات | شركة مقاولات في سيئون، حضرموت' }}</title>
-    <meta name="description" content="{{ $metaDescription ?? 'شركة وادي الريان للمقاولات العامة في سيئون، حضرموت، اليمن. بناء وتشييد طرق، مباني، وبنية تحتية بأعلى معايير الجودة.' }}">
+    <title>{{ $title ?? __('وادي الريان للمقاولات | شركة مقاولات في سيئون، حضرموت') }}</title>
+    <meta name="description" content="{{ $metaDescription ?? __('شركة وادي الريان للمقاولات العامة في سيئون، حضرموت، اليمن. بناء وتشييد طرق، مباني، وبنية تحتية بأعلى معايير الجودة.') }}">
     <meta name="keywords" content="شركة مقاولات في سيئون, مقاولات عامة حضرموت, بناء وتشييد طرق في اليمن, وادي الريان للمقاولات">
     
     <!-- JSON-LD Schema for Local SEO -->
@@ -49,21 +49,31 @@
 
     <!-- Navbar -->
     <nav :class="{'bg-white/95 backdrop-blur-md shadow-sm py-4 border-b border-gray-200': scrolled, 'bg-white py-6 border-b border-gray-100': !scrolled}" class="fixed top-0 z-50 w-full transition-all duration-500 text-brand-dark">
-        <div class="container max-w-7xl flex justify-between items-center px-4 mx-auto md:px-6">
+        <div class="container flex justify-between items-center px-4 mx-auto max-w-7xl md:px-6">
             <!-- Logo -->
             <a href="/" class="flex gap-3 items-center text-3xl font-extrabold group">
                 <span class="transition-transform duration-300 text-brand-primary group-hover:rotate-12">
                     <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                 </span>
-                <span class="tracking-wide text-brand-primary">وادي الريان<span class="block -mt-2 text-xl font-semibold text-brand-muted opacity-90">للمقاولات</span></span>
+                <span class="tracking-wide text-brand-primary">{{ __('وادي الريان') }}<span class="block -mt-2 text-xl font-semibold opacity-90 text-brand-muted">{{ __('للمقاولات') }}</span></span>
             </a>
 
             <!-- Desktop Menu -->
             <div class="hidden gap-10 items-center font-bold md:flex">
-                <a href="/" class="relative transition-colors hover:text-brand-secondary after:absolute after:-bottom-1 after:right-0 after:w-0 after:h-0.5 after:bg-brand-secondary hover:after:w-full after:transition-all after:duration-300">الرئيسية</a>
-                <a href="/services" class="relative text-brand-muted transition-colors hover:text-brand-secondary after:absolute after:-bottom-1 after:right-0 after:w-0 after:h-0.5 after:bg-brand-secondary hover:after:w-full after:transition-all after:duration-300">خدماتنا</a>
-                <a href="/projects" class="relative text-brand-muted transition-colors hover:text-brand-secondary after:absolute after:-bottom-1 after:right-0 after:w-0 after:h-0.5 after:bg-brand-secondary hover:after:w-full after:transition-all after:duration-300">مشاريعنا</a>
-                <a href="/contact" class="px-8 py-3 font-bold text-white rounded-lg transition-all duration-300 transform bg-brand-secondary hover:bg-brand-primary hover:shadow-lg hover:shadow-brand-secondary/20 hover:-translate-y-1">اطلب تسعيرة</a>
+                <a href="/" class="relative transition-colors hover:text-brand-secondary after:absolute after:-bottom-1 after:right-0 after:w-0 after:h-0.5 after:bg-brand-secondary hover:after:w-full after:transition-all after:duration-300">{{ __('الرئيسية') }}</a>
+                <a href="/services" class="relative transition-colors text-brand-muted hover:text-brand-secondary after:absolute after:-bottom-1 after:right-0 after:w-0 after:h-0.5 after:bg-brand-secondary hover:after:w-full after:transition-all after:duration-300">{{ __('خدماتنا') }}</a>
+                <a href="/projects" class="relative transition-colors text-brand-muted hover:text-brand-secondary after:absolute after:-bottom-1 after:right-0 after:w-0 after:h-0.5 after:bg-brand-secondary hover:after:w-full after:transition-all after:duration-300">{{ __('مشاريعنا') }}</a>
+                
+                @php
+                    $currentLang = app()->getLocale();
+                    $switchLang = $currentLang === 'ar' ? 'en' : 'ar';
+                    $switchText = $currentLang === 'ar' ? 'English' : 'عربي';
+                @endphp
+                <a href="{{ route('lang.switch', $switchLang) }}" class="relative transition-colors text-brand-muted hover:text-brand-secondary">
+                    {{ $switchText }}
+                </a>
+
+                <a href="/contact" class="px-8 py-3 font-bold text-white rounded-lg transition-all duration-300 transform bg-brand-secondary hover:bg-brand-primary hover:shadow-lg hover:shadow-brand-secondary/20 hover:-translate-y-1">{{ __('اطلب تسعيرة') }}</a>
             </div>
 
             <!-- Mobile Menu Toggle -->
@@ -86,10 +96,20 @@
              class="md:hidden fixed inset-0 top-[80px] bg-brand-primary/95 backdrop-blur-xl z-40 h-screen" 
              style="display: none;" x-cloak>
             <div class="flex flex-col px-6 py-10 space-y-8 text-2xl font-bold text-center">
-                <a href="/" @click="mobileMenuOpen = false" class="transition-colors hover:text-brand-secondary text-brand-tertiary">الرئيسية</a>
-                <a href="/services" @click="mobileMenuOpen = false" class="transition-colors hover:text-brand-tertiary text-white">خدماتنا</a>
-                <a href="/projects" @click="mobileMenuOpen = false" class="transition-colors hover:text-brand-tertiary text-white">مشاريعنا</a>
-                <a href="/contact" @click="mobileMenuOpen = false" class="inline-block px-8 py-4 mt-8 text-white rounded-lg border-2 transition-colors bg-brand-secondary border-brand-secondary hover:bg-brand-primary">اطلب تسعيرة</a>
+                <a href="/" @click="mobileMenuOpen = false" class="transition-colors hover:text-brand-secondary text-brand-tertiary">{{ __('الرئيسية') }}</a>
+                <a href="/services" @click="mobileMenuOpen = false" class="text-white transition-colors hover:text-brand-tertiary">{{ __('خدماتنا') }}</a>
+                <a href="/projects" @click="mobileMenuOpen = false" class="text-white transition-colors hover:text-brand-tertiary">{{ __('مشاريعنا') }}</a>
+                
+                @php
+                    $currentLang = app()->getLocale();
+                    $switchLang = $currentLang === 'ar' ? 'en' : 'ar';
+                    $switchText = $currentLang === 'ar' ? 'English' : 'عربي';
+                @endphp
+                <a href="{{ route('lang.switch', $switchLang) }}" class="text-white transition-colors hover:text-brand-tertiary">
+                    {{ $switchText }}
+                </a>
+
+                <a href="/contact" @click="mobileMenuOpen = false" class="inline-block px-8 py-4 mt-8 text-white rounded-lg border-2 transition-colors bg-brand-secondary border-brand-secondary hover:bg-brand-primary">{{ __('اطلب تسعيرة') }}</a>
             </div>
         </div>
     </nav>
@@ -100,33 +120,33 @@
     </main>
 
     <!-- Footer -->
-    <footer id="contact" class="py-20 text-white bg-brand-primary border-t border-white/5">
-        <div class="container max-w-7xl grid grid-cols-1 gap-12 px-4 mx-auto md:grid-cols-4 md:px-6">
+    <footer id="contact" class="py-20 text-white border-t bg-brand-primary border-white/5">
+        <div class="container grid grid-cols-1 gap-12 px-4 mx-auto max-w-7xl md:grid-cols-4 md:px-6">
             <div class="col-span-1 md:col-span-2">
                 <h3 class="flex gap-2 items-center mb-6 text-2xl font-bold text-white">
                     <span class="text-white">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                     </span>
-                    وادي الريان للمقاولات
+                    {{ __('وادي الريان للمقاولات') }}
                 </h3>
-                <p class="mb-6 max-w-md leading-relaxed text-white/60">نحن شركة رائدة في مجال المقاولات العامة، الطرق، والمباني والبنية التحتية، نبني حضرموت ونمهد طرق المستقبل بأعلى معايير الجودة والاحترافية.</p>
+                <p class="mb-6 max-w-md leading-relaxed text-white/60">{{ __('نحن شركة رائدة في مجال المقاولات العامة، الطرق، والمباني والبنية التحتية، نبني حضرموت ونمهد طرق المستقبل بأعلى معايير الجودة والاحترافية.') }}</p>
             </div>
             <div>
-                <h4 class="mb-6 text-xl font-bold text-brand-tertiary uppercase tracking-wider">روابط سريعة</h4>
+                <h4 class="mb-6 text-xl font-bold tracking-wider uppercase text-brand-tertiary">{{ __('روابط سريعة') }}</h4>
                 <ul class="space-y-4 font-semibold">
-                    <li><a href="/" class="text-white/70 transition hover:text-brand-secondary">الرئيسية</a></li>
-                    <li><a href="/services" class="text-white/70 transition hover:text-brand-secondary">خدماتنا</a></li>
-                    <li><a href="/projects" class="text-white/70 transition hover:text-brand-secondary">مشاريعنا</a></li>
-                </ul>
+                    <li><a href="/" class="transition text-white/70 hover:text-brand-secondary">{{ __('الرئيسية') }}</a></li>
+                    <li><a href="/services" class="transition text-white/70 hover:text-brand-secondary">{{ __('خدماتنا') }}</a></li>
+                    <li><a href="/projects" class="transition text-white/70 hover:text-brand-secondary">{{ __('مشاريعنا') }}</a></li>
+                </ ul>
             </div>
             <div>
-                <h4 class="mb-6 text-xl font-bold text-brand-tertiary uppercase tracking-wider">تواصل معنا</h4>
+                <h4 class="mb-6 text-xl font-bold tracking-wider uppercase text-brand-tertiary">{{ __('تواصل معنا') }}</h4>
                 <ul class="space-y-4 font-semibold">
                     <li class="flex gap-3 items-center text-sm text-white/70 md:text-base">
                         <svg class="flex-shrink-0 w-6 h-6 text-brand-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        سيئون، حضرموت، الجمهورية اليمنية
+                        {{ __('سيئون، حضرموت، الجمهورية اليمنية') }}
                     </li>
-                    <li class="flex gap-3 items-center text-sm text-white/70 md:text-base">
+                    <li class="flex gap-1 items-end text-sm text-white/70 md:text-base">
                         <svg class="flex-shrink-0 w-6 h-6 text-brand-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                         <span dir="ltr" class="inline-block w-full text-right">+967 700 000 000</span>
                     </li>
@@ -137,8 +157,8 @@
                 </ul>
             </div>
         </div>
-        <div class="pt-8 mt-16 text-sm text-center font-semibold text-white/40 border-t border-white/10">
-            جميع الحقوق محفوظة &copy; {{ date('Y') }} شركة وادي الريان للمقاولات.
+        <div class="pt-8 mt-16 text-sm font-semibold text-center border-t text-white/40 border-white/10">
+            {{ __('جميع الحقوق محفوظة © :year شركة وادي الريان للمقاولات.', ['year' => date('Y')]) }}
         </div>
         
     </footer>
