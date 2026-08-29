@@ -1,188 +1,242 @@
 <x-layouts.app>
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-brand-dark" id="hero-section">
-        <!-- Parallax Background -->
-        <div class="absolute inset-0 z-0 hero-bg scale-110">
-            <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=1920&auto=format&fit=crop" onerror="this.style.display='none'" alt="Construction Hero" class="w-full h-full object-cover">
-            <!-- Premium gradient overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/90 to-transparent"></div>
-        </div>
-        
-        <div class="relative z-10 container mx-auto px-4 md:px-6 mt-20">
-            <div class="max-w-4xl">
-                <!-- Staggered Title -->
-                <div class="overflow-hidden mb-2">
-                    <span class="block text-brand-orange font-bold tracking-[0.2em] uppercase text-sm md:text-base hero-text-line">وادي الريان للمقاولات</span>
-                </div>
-                
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[1.1] tracking-tight">
-                    <div class="overflow-hidden"><span class="block hero-text-line">نبني رؤيتك،</span></div>
-                    <div class="overflow-hidden"><span class="block hero-text-line text-brand-orange">بإتقان يفوق الخيال.</span></div>
+    <section class="relative w-full min-h-[85vh] flex items-center bg-brand-background overflow-hidden pt-32 pb-24" id="hero-section">
+        <div class="container max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="flex flex-col gap-8 max-w-2xl reveal stagger-1">
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-brand-primary leading-[1.2]">
+                    <div class="overflow-hidden"><span class="block hero-text-line">نبني المستقبل</span></div>
+                    <div class="overflow-hidden"><span class="block hero-text-line"><span class="text-brand-secondary">بحرفية</span> وتميز</span></div>
                 </h1>
                 
-                <div class="overflow-hidden mb-12">
-                    <p class="text-xl md:text-2xl text-gray-300 max-w-2xl font-light hero-text-line leading-relaxed">
-                        نصنع فارقاً في عالم المقاولات بتصاميم عصرية وتنفيذ احترافي يضمن أعلى معايير الجودة العالمية منذ أكثر من عقدين.
+                <div class="overflow-hidden">
+                    <p class="text-lg md:text-xl text-brand-muted border-r-4 border-brand-tertiary pr-6 leading-relaxed hero-text-line">
+                        نصنع فارقاً في عالم المقاولات بتصاميم عصرية وتنفيذ احترافي يضمن أعلى معايير الجودة العالمية منذ أكثر من عقدين. نحن وادي الريان، شريكك الموثوق.
                     </p>
                 </div>
                 
-                <div class="flex flex-col sm:flex-row gap-6 overflow-hidden">
-                    <a href="/contact" class="hero-btn inline-flex justify-center items-center px-10 py-4 bg-brand-orange text-brand-dark rounded-full font-bold text-lg hover:bg-brand-amber transition-colors shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                <div class="flex flex-wrap gap-4 mt-4 overflow-hidden">
+                    <a href="/contact" class="hero-btn inline-flex justify-center items-center px-8 py-4 text-lg font-bold text-white rounded-lg shadow-card transition-all duration-500 bg-brand-secondary hover:bg-brand-primary hover:shadow-soft hover:-translate-y-1">
                         ابدأ مشروعك
-                        <svg class="w-5 h-5 mr-3 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        <svg class="mr-3 w-5 h-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </a>
-                    <a href="#services" class="hero-btn inline-flex justify-center items-center px-10 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-colors">
+                    <a href="#services" class="hero-btn inline-flex justify-center items-center px-8 py-4 text-lg font-bold rounded-lg border-2 transition-all duration-500 bg-transparent text-brand-primary border-brand-primary hover:bg-brand-primary hover:text-white">
                         اكتشف خدماتنا
                     </a>
                 </div>
             </div>
+            
+            <div class="relative h-[400px] md:h-[500px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-soft border border-gray-100 reveal stagger-3 hero-image">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Prestigious Architecture" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-primary/40 to-transparent"></div>
+            </div>
         </div>
-        
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer scroll-indicator">
-            <span class="text-xs uppercase tracking-widest text-white rotate-90 mb-4 font-light">تمرير</span>
-            <div class="w-[1px] h-16 bg-white/30 relative overflow-hidden">
-                <div class="w-full h-full bg-brand-orange absolute top-0 left-0 scroll-line"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-brand-primary py-20 w-full relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-tertiary/10 rounded-full -mr-32 -mt-32"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-secondary/10 rounded-full -ml-32 -mb-32"></div>
+        <div class="container max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
+            <div class="flex flex-col items-center text-center px-4">
+                <span class="text-5xl md:text-6xl font-black text-brand-secondary">20+</span>
+                <span class="text-sm md:text-base font-bold text-white/70 mt-2 uppercase tracking-widest">عاماً من الخبرة</span>
+            </div>
+            <div class="flex flex-col items-center text-center px-4">
+                <span class="text-5xl md:text-6xl font-black text-white">150+</span>
+                <span class="text-sm md:text-base font-bold text-white/70 mt-2 uppercase tracking-widest">مشروع مكتمل</span>
+            </div>
+            <div class="flex flex-col items-center text-center px-4">
+                <span class="text-5xl md:text-6xl font-black text-white">100%</span>
+                <span class="text-sm md:text-base font-bold text-white/70 mt-2 uppercase tracking-widest">التزام بالمواعيد</span>
+            </div>
+            <div class="flex flex-col items-center text-center px-4">
+                <span class="text-5xl md:text-6xl font-black text-brand-tertiary">24/7</span>
+                <span class="text-sm md:text-base font-bold text-white/70 mt-2 uppercase tracking-widest">دعم فني هندسي</span>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-32 bg-brand-surface relative z-20">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 section-header">
-                <div class="max-w-2xl">
-                    <span class="text-brand-orange font-bold tracking-wider uppercase text-sm mb-4 block">مجالات التميز</span>
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">خدمات هندسية متكاملة</h2>
-                </div>
-                <p class="text-gray-400 max-w-md text-lg leading-relaxed md:text-left mt-6 md:mt-0">نقدم حلولاً شاملة تلبي احتياجات مشاريعك بدءاً من الفكرة وحتى التسليم، مع ضمان الجودة.</p>
+    <section id="services" class="py-24 bg-white border-t border-gray-100">
+        <div class="container max-w-7xl px-4 mx-auto md:px-6">
+            <div class="text-center mb-20 max-w-3xl mx-auto">
+                <span class="inline-flex items-center gap-2 px-4 py-2 mb-5 rounded-full bg-brand-secondary/10 text-brand-secondary text-sm font-bold tracking-wide">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    مجالاتنا
+                </span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-brand-primary mb-6">مجالات التميز الهندسي</h2>
+                <p class="text-lg text-brand-muted leading-relaxed">
+                    نقدم حلولاً إنشائية وهندسية متكاملة عبر فريق من الخبراء لضمان تنفيذ مشاريعكم بأعلى معايير الجودة والسلامة المهنية.
+                </p>
+                <div class="mx-auto mt-8 w-24 h-1.5 rounded-full bg-brand-tertiary"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                @forelse($services as $index => $service)
-                <div class="service-card {{ $index == 1 ? 'md:translate-y-12' : ($index == 2 ? 'md:translate-y-24' : '') }} group bg-brand-dark p-10 rounded-[2rem] border border-white/5 hover:border-brand-orange/50 transition-colors duration-500 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="w-20 h-20 bg-brand-surface rounded-2xl flex items-center justify-center mb-8 text-brand-orange relative z-10">
-                        @if($service->icon)
-                            {!! $service->icon !!}
-                        @else
-                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                        @endif
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                <!-- Service 1 -->
+                <div class="bg-white border-b-4 border-transparent hover:border-brand-secondary border-x border-t border-gray-100 p-10 rounded-xl shadow-card hover:shadow-soft transition-all duration-500 group">
+                    <div class="mb-6 group-hover:text-brand-secondary text-brand-primary transition-colors duration-300">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4 relative z-10">{{ $service->title }}</h3>
-                    <p class="text-gray-400 mb-8 leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors">{{ Str::limit(strip_tags($service->description), 100) }}</p>
+                    <h3 class="mb-4 text-2xl font-bold text-brand-primary">بناء عام</h3>
+                    <p class="font-medium leading-relaxed text-brand-muted/90">
+                        نقوم بتنفيذ أضخم المشاريع الإنشائية، بدءاً من الأبراج السكنية والمراكز التجارية وصولاً إلى المجمعات المتكاملة، مع التزام تام بالجودة.
+                    </p>
                 </div>
-                @empty
-                <p class="text-gray-400 col-span-3 text-center">لا توجد خدمات مضافة حالياً.</p>
-                @endforelse
+
+                <!-- Service 2 -->
+                <div class="bg-white border-b-4 border-transparent hover:border-brand-secondary border-x border-t border-gray-100 p-10 rounded-xl shadow-card hover:shadow-soft transition-all duration-500 group">
+                    <div class="mb-6 group-hover:text-brand-secondary text-brand-primary transition-colors duration-300">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </div>
+                    <h3 class="mb-4 text-2xl font-bold text-brand-primary">ترميم المباني</h3>
+                    <p class="font-medium leading-relaxed text-brand-muted/90">
+                        إعادة إحياء المباني القائمة وتحديثها عبر أحدث التقنيات لضمان استدامتها وحمايتها، مع الحفاظ على القيمة الجمالية والمعمارية.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white border-b-4 border-transparent hover:border-brand-secondary border-x border-t border-gray-100 p-10 rounded-xl shadow-card hover:shadow-soft transition-all duration-500 group">
+                    <div class="mb-6 group-hover:text-brand-secondary text-brand-primary transition-colors duration-300">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="mb-4 text-2xl font-bold text-brand-primary">تصميم هندسي</h3>
+                    <p class="font-medium leading-relaxed text-brand-muted/90">
+                        تقديم تصاميم معمارية وإنشائية مبتكرة تجمع بين الجمال الوظيفي والحلول المستدامة لتلبي طموحات عملائنا بدقة واحترافية.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="/services" class="inline-flex gap-3 items-center font-bold text-brand-primary transition-colors hover:text-brand-secondary group">
+                    عرض جميع الخدمات
+                    <span class="p-2 rounded-full bg-brand-tertiary/20 text-brand-tertiary group-hover:bg-brand-secondary group-hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </span>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Projects Gallery Grid -->
-    <section class="py-32 bg-brand-dark">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 projects-header">
-                <div>
-                    <span class="text-brand-orange font-bold tracking-wider uppercase text-sm mb-4 block">أعمالنا المميزة</span>
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">أحدث المشاريع</h2>
+    <section class="py-24 bg-brand-background border-t border-gray-100">
+        <div class="container max-w-7xl px-4 mx-auto md:px-6">
+            <div class="flex flex-col justify-between items-end mb-16 md:flex-row">
+                <div class="max-w-2xl">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 mb-4 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-bold tracking-wide">
+                        أبرز المشاريع
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-brand-primary">سجل حافل بالإنجازات</h2>
                 </div>
-                <a href="/projects" class="hidden md:flex items-center gap-2 text-gray-300 font-bold hover:text-brand-orange transition-colors">
+                <a href="/projects" class="hidden gap-3 items-center font-bold text-brand-primary transition-colors md:flex hover:text-brand-secondary group">
                     استعراض السجل الكامل
-                    <svg class="w-5 h-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    <span class="p-2 rounded-full bg-brand-tertiary/20 text-brand-tertiary group-hover:bg-brand-secondary group-hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </span>
                 </a>
             </div>
 
-            <!-- Premium Gallery Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-[800px] md:h-[600px] project-grid">
-                @if($projects->count() > 0)
-                    <!-- Large Project (Left) -->
-                    <a href="{{ route('projects.show', $projects[0]) }}" class="project-item md:col-span-8 relative group rounded-3xl overflow-hidden block">
-                        <img src="{{ !empty($projects[0]->images) ? url($projects[0]->images[0]) : 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop' }}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="{{ $projects[0]->title }}">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <div class="flex justify-between items-end">
-                                <div>
-                                    <span class="text-brand-orange font-bold tracking-widest text-sm mb-3 block">{{ $projects[0]->location ?? 'مشروع متميز' }}</span>
-                                    <h3 class="text-white text-4xl font-black">{{ $projects[0]->title }}</h3>
+            <!-- Projects Card Gallery -->
+            <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+                @forelse($projects->take(3) ?? [] as $project)
+                    <a href="{{ route('projects.show', $project) }}" class="flex flex-col h-full rounded-2xl bg-white border border-gray-100 shadow-card hover:shadow-soft transition-all duration-500 group overflow-hidden hover:-translate-y-2">
+                        <div class="relative overflow-hidden aspect-video bg-gray-100">
+                            <img src="{{ !empty($project->images) ? url($project->images[0]) : 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=600&auto=format&fit=crop' }}" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105" alt="{{ $project->title }}">
+                            <div class="absolute inset-0 transition-colors duration-500 bg-brand-primary/10 group-hover:bg-transparent"></div>
+                            
+                            <!-- Date Badge -->
+                            <div class="absolute top-4 left-4 px-4 py-1.5 text-xs font-bold rounded-full shadow-md bg-white text-brand-primary border border-gray-100">
+                                {{ $project->completed_at ? \Carbon\Carbon::parse($project->completed_at)->format('Y/m/d') : 'قريباً' }}
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col flex-grow justify-between p-8">
+                            <div>
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="px-3 py-1 text-xs font-bold tracking-wider rounded-full text-brand-secondary bg-brand-secondary/10">{{ $project->location ?? 'الرياض' }}</span>
                                 </div>
-                                <div class="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center text-white backdrop-blur-sm group-hover:bg-brand-orange group-hover:border-brand-orange group-hover:text-brand-dark transition-all duration-300">
-                                    <svg class="w-5 h-5 -rotate-45 rtl:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                </div>
+                                <h3 class="mb-4 text-2xl font-bold text-brand-primary transition-colors group-hover:text-brand-secondary">{{ $project->title }}</h3>
+                                <p class="mb-6 text-base font-medium leading-relaxed text-brand-muted line-clamp-3">
+                                    {{ Str::limit(strip_tags($project->description ?? 'تفاصيل المشروع غير متوفرة حالياً. نحن في وادي الريان نهتم بأدق التفاصيل في كل مشاريعنا لضمان الجودة.'), 120) }}
+                                </p>
+                            </div>
+                            <div class="flex items-center text-sm font-bold text-brand-primary transition-colors group-hover:text-brand-secondary">
+                                عرض التفاصيل
+                                <svg class="mr-2 w-4 h-4 transition-transform transform rtl:rotate-180 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             </div>
                         </div>
                     </a>
-                    
-                    @if($projects->count() > 1)
-                    <div class="md:col-span-4 grid grid-rows-2 gap-6">
-                        @foreach($projects->skip(1) as $project)
-                        <!-- Small Project -->
-                        <a href="{{ route('projects.show', $project) }}" class="project-item relative group rounded-3xl overflow-hidden block">
-                            <img src="{{ !empty($project->images) ? url($project->images[0]) : 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop' }}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="{{ $project->title }}">
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
-                            <div class="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                <span class="text-brand-orange font-bold tracking-widest text-xs mb-2 block">{{ $project->location ?? 'مشروع' }}</span>
-                                <h3 class="text-white text-2xl font-bold">{{ $project->title }}</h3>
+                @empty
+                    <!-- Fallback if no projects exist in DB yet -->
+                    @foreach(range(1, 3) as $i)
+                        <a href="#" class="flex flex-col h-full rounded-2xl bg-white border border-gray-100 shadow-card hover:shadow-soft transition-all duration-500 group overflow-hidden hover:-translate-y-2">
+                            <div class="relative overflow-hidden aspect-video bg-gray-100">
+                                <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=600&auto=format&fit=crop" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105" alt="مشروع">
+                                <div class="absolute inset-0 transition-colors duration-500 bg-brand-primary/10 group-hover:bg-transparent"></div>
+                                <div class="absolute top-4 left-4 px-4 py-1.5 text-xs font-bold rounded-full shadow-md bg-white text-brand-primary border border-gray-100">2024/05/12</div>
+                            </div>
+                            <div class="flex flex-col flex-grow justify-between p-8">
+                                <div>
+                                    <div class="flex justify-between items-center mb-4">
+                                        <span class="px-3 py-1 text-xs font-bold tracking-wider rounded-full text-brand-secondary bg-brand-secondary/10">سيئون، حضرموت</span>
+                                    </div>
+                                    <h3 class="mb-4 text-2xl font-bold text-brand-primary transition-colors group-hover:text-brand-secondary">مجمع سكني نموذجي</h3>
+                                    <p class="mb-6 text-base font-medium leading-relaxed text-brand-muted line-clamp-3">
+                                        مشروع سكني متكامل يضم مجموعة من الفلل الفاخرة المصممة بأحدث الطرازات المعمارية التي تلبي احتياجات العائلة العصرية.
+                                    </p>
+                                </div>
+                                <div class="flex items-center text-sm font-bold text-brand-primary transition-colors group-hover:text-brand-secondary">
+                                    عرض التفاصيل
+                                    <svg class="mr-2 w-4 h-4 transition-transform transform rtl:rotate-180 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </div>
                             </div>
                         </a>
-                        @endforeach
-                    </div>
-                    @endif
-                @else
-                    <div class="md:col-span-12 text-center py-20 text-gray-400">
-                        لا توجد مشاريع مضافة حالياً.
-                    </div>
-                @endif
+                    @endforeach
+                @endforelse
             </div>
             
             <div class="mt-12 text-center md:hidden">
-                <a href="/projects" class="inline-flex items-center gap-2 text-brand-orange font-bold hover:text-brand-amber transition">
+                <a href="/projects" class="inline-flex gap-3 items-center font-bold text-brand-primary transition-colors hover:text-brand-secondary group">
                     عرض كل المشاريع
-                    <svg class="w-5 h-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    <span class="p-2 rounded-full bg-brand-tertiary/20 text-brand-tertiary group-hover:bg-brand-secondary group-hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- About Us / Stats Section -->
-    <section class="py-32 bg-brand-surface relative overflow-hidden">
-        <!-- Abstract Background Element -->
-        <div class="absolute -top-[30%] -right-[10%] w-[70%] h-[150%] bg-brand-dark rounded-full blur-[120px] opacity-50 z-0"></div>
-        
-        <div class="container mx-auto px-4 md:px-6 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                <div class="relative about-image">
-                    <div class="aspect-square rounded-[3rem] overflow-hidden border border-white/10 relative">
-                        <img src="https://images.unsplash.com/photo-1581094722700-1c5c7d0a7cb5?q=80&w=1000&auto=format&fit=crop" alt="About Us" class="w-full h-full object-cover">
+    <!-- Formal About Us Section -->
+    <section class="py-24 bg-white border-t border-gray-100">
+        <div class="container max-w-7xl mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 gap-16 items-center lg:grid-cols-2">
+                <div class="relative">
+                    <div class="overflow-hidden rounded-2xl border-4 border-white shadow-soft aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1581094722700-1c5c7d0a7cb5?q=80&w=1000&auto=format&fit=crop" alt="About Us" class="object-cover w-full h-full transition-transform duration-700 hover:scale-105">
                     </div>
                     <!-- Floating Stat Badge -->
-                    <div class="absolute -bottom-10 -right-10 bg-brand-dark/80 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] shadow-glass z-20 hidden md:flex flex-col items-center justify-center min-w-[200px] stat-badge">
-                        <span class="text-5xl font-black text-brand-orange mb-2"><span class="counter" data-target="20">0</span>+</span>
-                        <span class="text-gray-300 font-semibold tracking-wider text-sm uppercase">عاماً من الخبرة</span>
+                    <div class="absolute -bottom-8 -right-8 p-8 rounded-2xl border border-gray-100 shadow-card z-20 hidden md:flex flex-col items-center justify-center min-w-[220px] bg-white">
+                        <span class="mb-1 text-5xl font-black text-brand-secondary">20+</span>
+                        <span class="text-sm font-bold tracking-widest text-brand-muted uppercase">عاماً من التميز</span>
                     </div>
                 </div>
                 
-                <div class="about-content">
-                    <span class="text-brand-orange font-bold tracking-wider uppercase text-sm mb-4 block">هويتنا</span>
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">الريادة في صناعة المستقبل العمراني</h2>
-                    <p class="text-xl text-gray-400 leading-relaxed mb-12 font-light">
-                        نحن لسنا مجرد مقاولين، نحن شركاء في تجسيد رؤيتك. نجمع بين الخبرة العميقة والتقنيات المبتكرة لتقديم مشاريع تتجاوز التوقعات وتصمد أمام اختبار الزمن.
+                <div class="flex flex-col gap-6">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 w-max rounded-full bg-brand-primary/10 text-brand-primary text-sm font-bold tracking-wide">
+                        عن الشركة
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold leading-tight text-brand-primary">
+                        شريكك الموثوق في البناء والتشييد
+                    </h2>
+                    <div class="w-20 h-1.5 bg-brand-secondary rounded-full"></div>
+                    <p class="text-lg font-medium leading-relaxed text-brand-muted">
+                        في وادي الريان للمقاولات، نلتزم بتقديم مشاريع نموذجية تجسد التطور وتلبي أعلى المعايير الهندسية. نسعى دائماً لتخطي توقعات عملائنا من خلال الدمج بين التكنولوجيا الحديثة والخبرات المتراكمة.
                     </p>
                     
-                    <div class="grid grid-cols-2 gap-10 mb-12 border-t border-white/10 pt-12">
-                        <div>
-                            <div class="text-5xl font-black text-white mb-3"><span class="counter" data-target="150">0</span>+</div>
-                            <div class="text-gray-400 font-medium">مشروع منجز</div>
-                        </div>
-                        <div>
-                            <div class="text-5xl font-black text-white mb-3"><span class="counter" data-target="100">0</span>%</div>
-                            <div class="text-gray-400 font-medium">رضا العملاء</div>
-                        </div>
-                    </div>
-
-                    <a href="/contact" class="inline-flex items-center justify-center px-10 py-5 bg-white text-brand-dark rounded-full font-bold text-lg hover:bg-gray-200 transition-colors">
-                        تواصل مع خبرائنا
+                    <a href="/contact" class="inline-flex items-center gap-3 text-brand-primary font-bold hover:text-brand-secondary transition-colors mt-4 w-fit group">
+                        <span class="border-b-2 border-brand-tertiary pb-1 group-hover:border-brand-secondary transition-colors">تواصل مع فريقنا</span>
+                        <span class="p-2 rounded-full bg-brand-tertiary/20 text-brand-tertiary group-hover:bg-brand-secondary group-hover:text-white transition-all duration-300">
+                            <svg class="w-5 h-5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </span>
                     </a>
                 </div>
             </div>
@@ -192,142 +246,23 @@
     @push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // GSAP Animations setup
-            
-            // Hero Animation
-            const tl = gsap.timeline();
-            
-            tl.to('.hero-bg img', {
-                scale: 1,
-                duration: 2,
-                ease: 'power3.out'
-            })
-            .fromTo('.hero-text-line', 
-                { y: 100, opacity: 0 }, 
-                { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: 'power4.out' },
-                "-=1.5"
-            )
-            .fromTo('.hero-btn',
-                { y: 30, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'back.out(1.7)' },
-                "-=0.8"
-            )
-            .fromTo('.scroll-indicator',
-                { opacity: 0 },
-                { opacity: 0.6, duration: 1 },
-                "-=0.5"
-            );
-
-            // Scroll Line Animation
-            gsap.to('.scroll-line', {
-                yPercent: 100,
-                ease: 'none',
-                repeat: -1,
-                duration: 1.5
-            });
-
-            // Services Animation
-            gsap.from('.section-header', {
-                scrollTrigger: {
-                    trigger: '#services',
-                    start: 'top 80%',
-                },
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: 'power3.out'
-            });
-
-            gsap.from('.service-card', {
-                scrollTrigger: {
-                    trigger: '.service-card',
-                    start: 'top 85%',
-                },
-                y: 100,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.2,
-                ease: 'power3.out'
-            });
-
-            // Projects Animation
-            gsap.from('.projects-header', {
-                scrollTrigger: {
-                    trigger: '.projects-header',
-                    start: 'top 85%',
-                },
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: 'power3.out'
-            });
-
-            gsap.from('.project-item', {
-                scrollTrigger: {
-                    trigger: '.project-grid',
-                    start: 'top 80%',
-                },
-                scale: 0.95,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: 'power3.out'
-            });
-
-            // About Section & Counters
-            gsap.from('.about-image', {
-                scrollTrigger: {
-                    trigger: '.about-image',
-                    start: 'top 80%',
-                },
-                x: 100,
-                opacity: 0,
-                duration: 1.2,
-                ease: 'power3.out'
-            });
-
-            gsap.from('.about-content', {
-                scrollTrigger: {
-                    trigger: '.about-image',
-                    start: 'top 80%',
-                },
-                x: -100,
-                opacity: 0,
-                duration: 1.2,
-                ease: 'power3.out'
-            });
-
-            gsap.from('.stat-badge', {
-                scrollTrigger: {
-                    trigger: '.stat-badge',
-                    start: 'top 90%',
-                },
-                y: 50,
-                opacity: 0,
-                scale: 0.8,
-                duration: 0.8,
-                delay: 0.5,
-                ease: 'back.out(1.5)'
-            });
-
-            // Counters Animation
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                ScrollTrigger.create({
-                    trigger: counter,
-                    start: 'top 90%',
-                    onEnter: () => {
-                        const target = +counter.getAttribute('data-target');
-                        gsap.to(counter, {
-                            innerHTML: target,
-                            duration: 2,
-                            snap: { innerHTML: 1 },
-                            ease: 'power2.out'
-                        });
-                    },
-                    once: true
-                });
-            });
+            if(typeof gsap !== 'undefined') {
+                const tl = gsap.timeline();
+                tl.fromTo('.hero-text-line', 
+                    { y: 50, opacity: 0 }, 
+                    { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: 'power3.out', delay: 0.2 }
+                )
+                .fromTo('.hero-btn',
+                    { y: 20, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out' },
+                    "-=0.5"
+                )
+                .fromTo('.hero-image',
+                    { scale: 0.95, opacity: 0 },
+                    { scale: 1, opacity: 1, duration: 1, ease: 'power2.out' },
+                    "-=1"
+                );
+            }
         });
     </script>
     @endpush

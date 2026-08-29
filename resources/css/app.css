@@ -5,7 +5,7 @@
 /* Custom Base Styles for Premium Feel */
 @layer base {
   body {
-    @apply bg-brand-dark text-gray-200 antialiased overflow-x-hidden selection:bg-brand-orange selection:text-white;
+    @apply bg-brand-background text-brand-dark antialiased overflow-x-hidden selection:bg-brand-secondary selection:text-white;
   }
 }
 
