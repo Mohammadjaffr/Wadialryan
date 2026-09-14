@@ -16,21 +16,16 @@ use Filament\Tables\Table;
 
 class ProjectResource extends Resource
 {
+    protected static ?string $modelLabel = 'مشروع';
+    protected static ?string $pluralModelLabel = 'المشاريع';
+    protected static ?string $navigationLabel = 'المشاريع';
+
     protected static ?string $model = Project::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static \UnitEnum|string|null $navigationGroup = 'Company Content';
 
     protected static ?string $recordTitleAttribute = 'title';
-
-    public static function getModelLabel(): string
-    {
-        return __('مشروع');
-    }
-
-    public static function getPluralModelLabel(): string
-    {
-        return __('المشاريع');
-    }
 
     public static function form(Schema $schema): Schema
     {

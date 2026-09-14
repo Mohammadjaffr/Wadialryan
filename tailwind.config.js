@@ -9,14 +9,14 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          primary: '#0B1D2D',
-          secondary: '#E03131',
-          tertiary: '#C8A86A',
-          background: '#F7F9FF',
-          surface: '#FFFFFF',
-          dark: '#121D26',
-          muted: '#43474C',
-          light: '#F7F9FF',
+          primary: '#13312A', // Primary Corporate Green
+          secondary: '#C69A72', // Secondary / Gold
+          background: '#F6E9CA', // From user request "الاوان المستخدمه هذا #13312A,#c69A72,#F6E9CA,#155446"
+          darkgreen: '#155446',
+          surface: '#FFFFFF', // White
+          dark: '#111827', // Neutral Gray (Dark)
+          muted: '#6B7280', // Neutral Gray
+          light: '#F3F4F6', // Off-White
         },
       },
       fontFamily: {

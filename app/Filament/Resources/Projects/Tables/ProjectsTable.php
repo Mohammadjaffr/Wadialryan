@@ -5,6 +5,8 @@ namespace App\Filament\Resources\Projects\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -14,14 +16,25 @@ class ProjectsTable
     {
         return $table
             ->columns([
-                TextColumn::make('title')
+                TextColumn::make('slug')->label('الرابط')
                     ->searchable(),
-                TextColumn::make('slug')
+                TextColumn::make('category')
                     ->searchable(),
-                TextColumn::make('location')
+                TextColumn::make('project_status')->label('الحالة')
                     ->searchable(),
-                TextColumn::make('completion_date')
+                TextColumn::make('start_date')->label('تاريخ البدء')
                     ->date()
+                    ->sortable(),
+                TextColumn::make('completion_date')->label('تاريخ الانتهاء')
+                    ->date()
+                    ->sortable(),
+                ImageColumn::make('main_image')->label('الصورة'),
+                IconColumn::make('is_featured')->label('مميز')
+                    ->boolean(),
+                IconColumn::make('is_active')->label('مفعل')
+                    ->boolean(),
+                TextColumn::make('sort_order')->label('الترتيب')
+                    ->numeric()
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
@@ -31,6 +44,13 @@ class ProjectsTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('client_id')->label('العميل')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('industry_id')->label('القطاع')
+                    ->numeric()
+                    ->sortable(),
+                ImageColumn::make('og_image')->label('الصورة'),
             ])
             ->filters([
                 //

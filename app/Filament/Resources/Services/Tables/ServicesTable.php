@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Services\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -15,12 +16,18 @@ class ServicesTable
     {
         return $table
             ->columns([
-                TextColumn::make('title')
+                TextColumn::make('slug')->label('الرابط')
                     ->searchable(),
-                TextColumn::make('slug')
+                TextColumn::make('icon')->label('الأيقونة')
                     ->searchable(),
-                TextColumn::make('icon')
-                    ->searchable(),
+                ImageColumn::make('main_image')->label('الصورة'),
+                IconColumn::make('is_featured')->label('مميز')
+                    ->boolean(),
+                IconColumn::make('is_active')->label('مفعل')
+                    ->boolean(),
+                TextColumn::make('sort_order')->label('الترتيب')
+                    ->numeric()
+                    ->sortable(),
                 ImageColumn::make('image_path'),
                 TextColumn::make('created_at')
                     ->dateTime()
@@ -30,6 +37,7 @@ class ServicesTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                ImageColumn::make('og_image')->label('الصورة'),
             ])
             ->filters([
                 //

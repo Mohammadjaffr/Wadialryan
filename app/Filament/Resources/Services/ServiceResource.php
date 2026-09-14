@@ -16,9 +16,14 @@ use Filament\Tables\Table;
 
 class ServiceResource extends Resource
 {
+    protected static ?string $modelLabel = 'خدمة';
+    protected static ?string $pluralModelLabel = 'الخدمات';
+    protected static ?string $navigationLabel = 'الخدمات';
+
     protected static ?string $model = Service::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static \UnitEnum|string|null $navigationGroup = 'Company Content';
 
     protected static ?string $recordTitleAttribute = 'title';
 

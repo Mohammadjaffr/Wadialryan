@@ -2,6 +2,9 @@
 
 use App\Models\Project;
 use App\Models\Service;
+use App\Models\Equipment;
+use App\Models\Industry;
+use App\Models\Career;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -14,20 +17,42 @@ Route::get('/lang/{locale}', function ($locale) {
     return Redirect::back();
 })->name('lang.switch');
 
-Route::get('/', function () {
-    $projects = Project::latest()->take(3)->get();
-    $services = Service::latest()->take(3)->get();
-    return view('welcome', compact('projects', 'services'));
-});
+Route::get('/', [PageController::class, 'home'])->name('home');
 
-Route::get('/projects/{project:slug}', function (Project $project) {
-    return view('projects.show', compact('project'));
-})->name('projects.show');
+Route::get('/services', [PageController::class, 'services'])->name('services.index');
+Route::get('/services/{service:slug}', [PageController::class, 'serviceShow'])->name('services.show');
 
-Route::get('/services', [PageController::class, 'services'])->name('services');
-Route::get('/projects', [PageController::class, 'projects'])->name('projects');
-Route::get('/projects/create', function () {
-    return view('projects.create');
-})->name('projects.create');
+Route::get('/projects', [PageController::class, 'projects'])->name('projects.index');
+Route::get('/projects/{project}', [PageController::class, 'projectShow'])->name('projects.show');
+
+Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/equipment', [PageController::class, 'equipment'])->name('equipment.index');
+Route::get('/equipment/{equipment:slug}', [PageController::class, 'equipmentShow'])->name('equipment.show');
+
+Route::get('/industries', [PageController::class, 'industries'])->name('industries.index');
+Route::get('/industries/{industry:slug}', [PageController::class, 'industryShow'])->name('industries.show');
+
+Route::get('/careers', [PageController::class, 'careers'])->name('careers.index');
+Route::get('/careers/{career:slug}', [PageController::class, 'careerShow'])->name('careers.show');
+Route::post('/careers/{career:slug}/apply', [PageController::class, 'submitApplication'])->name('careers.apply')->middleware('throttle:5,1');
+
+Route::get('/certifications', [PageController::class, 'certifications'])->name('certifications.index');
+Route::get('/hse', [PageController::class, 'hse'])->name('hse');
+Route::get('/quality', [PageController::class, 'quality'])->name('quality');
+
+Route::get('/rfq', [PageController::class, 'rfq'])->name('rfq');
+Route::post('/rfq', [PageController::class, 'submitRfq'])->name('rfq.submit')->middleware('throttle:5,1');
+
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
-Route::post('/contact', [PageController::class, 'submitContact'])->name('contact.submit');
+Route::post('/contact', [PageController::class, 'submitContact'])->name('contact.submit')->middleware('throttle:5,1');
+
+Route::get('/sitemap.xml', function () {
+    $projects = App\Models\Project::where('is_active', true)->get();
+    $services = App\Models\Service::where('is_active', true)->get();
+    $industries = App\Models\Industry::where('active', true)->get();
+    $equipment = App\Models\Equipment::where('active', true)->get();
+    $careers = App\Models\Career::where('active', true)->get();
+    
+    return response()->view('sitemap', compact('projects', 'services', 'industries', 'equipment', 'careers'))
+                     ->header('Content-Type', 'text/xml');
+});
