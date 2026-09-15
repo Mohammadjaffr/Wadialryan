@@ -14,13 +14,11 @@ class JobApplicationsTable
     {
         return $table
             ->columns([
-                TextColumn::make('career_id')
-                    ->numeric()
+                TextColumn::make('career.title')->label('الوظيفة')
                     ->sortable(),
                 TextColumn::make('name')->label('الاسم')
                     ->searchable(),
                 TextColumn::make('email')->label('البريد الإلكتروني')
-                    ->label('Email address')
                     ->searchable(),
                 TextColumn::make('phone')->label('رقم الهاتف')
                     ->searchable(),

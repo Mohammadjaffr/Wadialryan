@@ -16,4 +16,16 @@ class EditProject extends EditRecord
             DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        $record = $this->getRecord();
+        if (method_exists($record, 'getTranslatableAttributes')) {
+            foreach ($record->getTranslatableAttributes() as $attribute) {
+                if (in_array($attribute, ['description'])) continue;
+                $data[$attribute] = $record->getTranslations($attribute);
+            }
+        }
+        return $data;
+    }
 }

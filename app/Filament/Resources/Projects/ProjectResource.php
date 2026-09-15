@@ -23,7 +23,7 @@ class ProjectResource extends Resource
     protected static ?string $model = Project::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static \UnitEnum|string|null $navigationGroup = 'Company Content';
+    protected static \UnitEnum|string|null $navigationGroup = 'محتوى الشركة';
 
     protected static ?string $recordTitleAttribute = 'title';
 

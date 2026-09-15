@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Table;
 
 class ClientsTable
@@ -17,8 +18,7 @@ class ClientsTable
             ->columns([
                 TextColumn::make('name')->label('الاسم')
                     ->searchable(),
-                TextColumn::make('logo')
-                    ->searchable(),
+                ImageColumn::make('logo')->label('الشعار'),
                 TextColumn::make('website')->label('الموقع الإلكتروني')
                     ->searchable(),
                 TextColumn::make('type')->label('النوع')

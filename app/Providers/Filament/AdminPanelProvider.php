@@ -27,6 +27,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->brandName('وادي الريان')
             ->login()
             ->colors([
                 'primary' => '#13312A', // Corporate Green

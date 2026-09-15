@@ -19,7 +19,6 @@ class QuoteRequestsTable
                 TextColumn::make('company')->label('الشركة')
                     ->searchable(),
                 TextColumn::make('email')->label('البريد الإلكتروني')
-                    ->label('Email address')
                     ->searchable(),
                 TextColumn::make('phone')->label('رقم الهاتف')
                     ->searchable(),

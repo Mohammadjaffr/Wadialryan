@@ -23,7 +23,7 @@ class ContactMessageResource extends Resource
     protected static ?string $model = ContactMessage::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static \UnitEnum|string|null $navigationGroup = 'Inquiries';
+    protected static \UnitEnum|string|null $navigationGroup = 'الاستفسارات';
 
     protected static ?string $recordTitleAttribute = 'name';
 

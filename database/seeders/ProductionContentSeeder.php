@@ -67,29 +67,29 @@ class ProductionContentSeeder extends Seeder
 
                 [
                     ['company_description_ar', 'description_ar', 'about_ar'],
-                    'شركة وادي الريان للمقاولات العامة والخدمات النفطية شركة متخصصة في تقديم الحلول المتكاملة لقطاعات النفط والغاز والبنية التحتية والمشاريع الإنشائية والصناعية. تجمع الشركة بين الخبرة الفنية والكفاءة التشغيلية لتوفير خدمات موثوقة وعالية الجودة تلبي احتياجات المشاريع المختلفة، وتشمل أعمالها المقاولات العامة والخدمات النفطية والأعمال الهندسية والبنية التحتية والطرق وخطوط الأنابيب وتأجير المعدات والآليات وتوفير القوى العاملة الفنية والتوريد والدعم اللوجستي.',
+                    'تُعد شركة وادي الريان للمقاولات العامة والخدمات النفطية شركة متخصصة في تقديم الحلول المتكاملة لقطاعات النفط والغاز والبنية التحتية والمشاريع الإنشائية والصناعية. نجمع بين الخبرة الفنية والكفاءة التشغيلية والتخطيط المنظم لتقديم خدمات تتناسب مع طبيعة كل مشروع ومتطلباته الفنية والميدانية. تمتد قدراتنا من الدراسات والاستشارات الهندسية وإعداد المخططات والخطط التنفيذية، إلى توفير القوى العاملة الفنية والمتخصصة وتأجير السيارات والمركبات والمعدات الثقيلة والرافعات، والتوريد والدعم اللوجستي، وتنفيذ أعمال البنية التحتية والطرق والأعمال المدنية وخدمات خطوط الأنابيب. كما تشمل أعمالنا تنفيذ الجسور الأرضية والمعلقة، وأعمال الأسفلت والرصف والتسوية والردم والدك، وصبيات الطرق في المناطق الجبلية والمرتفعات الوعرة، وأنكرات خطوط الأنابيب (Pipeline Anchors)، وحمايات HESCO للمواقع والمنشآت. نؤمن بأن نجاح المشاريع يبدأ بفهم المتطلبات والتخطيط السليم واختيار الموارد المناسبة، ثم التنفيذ الاحترافي والمتابعة المستمرة، مع الالتزام بالجودة والسلامة والموثوقية وبناء علاقات مهنية طويلة الأمد مع عملائنا.',
                 ],
                 [
                     ['company_description_en', 'description_en', 'about_en'],
-                    'Wadi Al Rayan General Contracting & Oilfield Services provides integrated solutions for the oil and gas, infrastructure, construction and industrial sectors. Our capabilities cover general contracting, oilfield support, engineering, infrastructure and road works, pipeline support, equipment rental, technical manpower supply, procurement and logistics support.',
+                    'Wadi Al Rayan General Contracting & Oilfield Services provides integrated solutions for the oil and gas, infrastructure, construction and industrial sectors. We combine technical expertise, operational capability and disciplined planning to support projects from early engineering and execution planning through resource mobilization, procurement, equipment and vehicle rental, technical manpower supply, logistics and field execution. Our capabilities include general contracting, infrastructure and civil works, road construction and rehabilitation, pipeline support, bridge and structural works, HESCO protection, heavy equipment and crane rental, engineering studies and technical support. We focus on understanding each project requirement, coordinating the right resources and delivering practical solutions with a strong commitment to quality, safety, reliability and long-term professional partnerships.',
                 ],
 
                 [
                     ['vision_ar'],
-                    'أن نكون من الشركات الموثوقة والرائدة في مجال المقاولات العامة والخدمات النفطية والبنية التحتية، وأن نساهم في تنفيذ مشاريع ذات قيمة مستدامة من خلال حلول عملية ومهنية ترتكز على الجودة والسلامة والكفاءة التشغيلية.',
+                    'أن نكون شريكًا موثوقًا ومفضّلًا في مشاريع المقاولات العامة والخدمات النفطية والبنية التحتية، من خلال تقديم حلول متكاملة وعملية تدعم نجاح المشاريع وتحقق قيمة مستدامة، مع تطوير قدراتنا باستمرار والالتزام بالجودة والسلامة والكفاءة التشغيلية.',
                 ],
                 [
                     ['vision_en'],
-                    'To be a trusted and leading provider of general contracting, oilfield services and infrastructure solutions, contributing to sustainable projects through professional execution, quality, safety and operational efficiency.',
+                    'To be a trusted and preferred partner for general contracting, oilfield services and infrastructure projects by delivering integrated, practical solutions that support project success and sustainable value while continuously developing our capabilities and maintaining a strong commitment to quality, safety and operational efficiency.',
                 ],
 
                 [
                     ['mission_ar'],
-                    'تقديم خدمات وحلول متكاملة لقطاعات النفط والغاز والمقاولات والبنية التحتية من خلال الجمع بين الخبرة الفنية والموارد المؤهلة والإدارة الفعالة للمشاريع والالتزام بالجودة والسلامة.',
+                    'تقديم خدمات وحلول متكاملة لقطاعات النفط والغاز والمقاولات والبنية التحتية، تبدأ من فهم احتياجات المشروع والدراسات والتخطيط، وتمتد إلى توفير الكوادر والمعدات والمواد والدعم اللوجستي والتنفيذ الميداني، من خلال إدارة فعالة للموارد والتزام واضح بالجودة والسلامة والموثوقية.',
                 ],
                 [
                     ['mission_en'],
-                    'To provide integrated services for oil and gas, construction and infrastructure projects by combining technical expertise, qualified resources, effective project management, quality and safety.',
+                    'To provide integrated services for oil and gas, construction and infrastructure projects from requirements analysis, engineering and planning through manpower, equipment, procurement, logistics and field execution, supported by effective resource management and a clear commitment to quality, safety and reliability.',
                 ],
 
                 [
@@ -103,11 +103,11 @@ class ProductionContentSeeder extends Seeder
 
                 [
                     ['footer_text_ar', 'footer_description_ar'],
-                    'وادي الريان للمقاولات العامة والخدمات النفطية تقدم حلولاً متكاملة للمشاريع النفطية والإنشائية والبنية التحتية من خلال خدمات هندسية وتشغيلية موثوقة.',
+                    'وادي الريان للمقاولات العامة والخدمات النفطية — حلول متكاملة من التخطيط والدراسات الهندسية إلى توفير الموارد والمعدات والتوريد والتنفيذ والدعم التشغيلي لمشاريع النفط والغاز والبنية التحتية والإنشاءات.',
                 ],
                 [
                     ['footer_text_en', 'footer_description_en'],
-                    'Wadi Al Rayan General Contracting & Oilfield Services provides integrated solutions for oilfield, construction and infrastructure projects through reliable engineering and operational services.',
+                    'Wadi Al Rayan General Contracting & Oilfield Services delivers integrated solutions from engineering and planning to manpower, equipment, procurement, execution and operational support for oil and gas, infrastructure and construction projects.',
                 ],
 
                 [
@@ -120,18 +120,18 @@ class ProductionContentSeeder extends Seeder
                 ],
                 [
                     ['default_seo_description_ar', 'seo_description_ar'],
-                    'حلول متكاملة في المقاولات العامة والخدمات النفطية والبنية التحتية والطرق وخطوط الأنابيب والمعدات والتوريد والخدمات الهندسية.',
+                    'وادي الريان للمقاولات العامة والخدمات النفطية — خدمات النفط والغاز، المقاولات، البنية التحتية، الطرق، خطوط الأنابيب، الجسور، تأجير المعدات والرافعات، القوى العاملة الفنية، التوريد والدراسات الهندسية.',
                 ],
                 [
                     ['default_seo_description_en', 'seo_description_en'],
-                    'Integrated general contracting, oilfield services, infrastructure, road works, pipeline support, equipment, procurement and engineering solutions.',
+                    'Wadi Al Rayan provides integrated oilfield services, general contracting, infrastructure, road and pipeline works, bridges, equipment and crane rental, technical manpower, procurement and engineering support.',
                 ],
             ];
 
             $changed = false;
 
             foreach ($values as [$properties, $value]) {
-                if ($this->seedFirstEmptySetting($settings, $properties, $value)) {
+                if ($this->seedSettingIfEmptyOrLegacy($settings, $properties, $value)) {
                     $changed = true;
                 }
             }
@@ -180,15 +180,15 @@ class ProductionContentSeeder extends Seeder
                 [
                     ['hero_title'],
                     [
-                        'ar' => 'حلول متكاملة للمقاولات والخدمات النفطية',
-                        'en' => 'Integrated Solutions for Contracting & Oilfield Services',
+                        'ar' => 'من التخطيط إلى التنفيذ — حلول متكاملة للمقاولات والخدمات النفطية',
+                        'en' => 'From Planning to Execution — Integrated Contracting & Oilfield Solutions',
                     ],
                 ],
                 [
                     ['hero_subtitle'],
                     [
-                        'ar' => 'نقدم حلولاً متكاملة لقطاعات النفط والغاز والبنية التحتية والمشاريع الإنشائية، من التخطيط والدراسات الهندسية إلى التنفيذ والتوريد والدعم التشغيلي.',
-                        'en' => 'Supporting oil and gas, infrastructure and construction projects through engineering, execution, procurement and operational support.',
+                        'ar' => 'نساند مشاريع النفط والغاز والبنية التحتية والإنشاءات عبر منظومة متكاملة تشمل الدراسات والتخطيط الهندسي، توفير الكوادر والمعدات والمركبات، التوريد والدعم اللوجستي، وتنفيذ الأعمال المدنية والميدانية بكفاءة وموثوقية.',
+                        'en' => 'Supporting oil and gas, infrastructure and construction projects through engineering and planning, manpower and equipment, procurement and logistics, civil works, field execution and operational support.',
                     ],
                 ],
                 [
@@ -216,42 +216,42 @@ class ProductionContentSeeder extends Seeder
                 [
                     ['about_heading'],
                     [
-                        'ar' => 'شريك موثوق للمشاريع الطموحة',
-                        'en' => 'A Trusted Partner for Ambitious Projects',
+                        'ar' => 'شريك متكامل لتنفيذ مشاريعك',
+                        'en' => 'An Integrated Partner for Project Execution',
                     ],
                 ],
                 [
                     ['about_content'],
                     [
-                        'ar' => 'في وادي الريان نعمل على توفير منظومة متكاملة من الخدمات التي تساعد عملاءنا على تنفيذ مشاريعهم بكفاءة، بداية من الدراسات والتخطيط وحتى توفير الموارد والمعدات والتنفيذ والدعم التشغيلي. نعتمد على فهم متطلبات كل مشروع واختيار الحلول المناسبة لطبيعة الموقع ونطاق الأعمال، مع التركيز على الجودة والسلامة والالتزام.',
-                        'en' => 'At Wadi Al Rayan, we provide integrated services that support our clients throughout the project lifecycle — from engineering and planning to resource mobilization, execution, supply and operational support. We focus on understanding each project requirement and delivering practical solutions with a strong commitment to quality, safety and reliability.',
+                        'ar' => 'في وادي الريان نعمل كشريك متكامل للمشروع، لا كمقدم خدمة منفردة. تبدأ مساهمتنا بفهم متطلبات المشروع ودراسة نطاق العمل والتخطيط للحلول المناسبة، ثم تمتد إلى الدعم الهندسي، توفير القوى العاملة الفنية، المعدات والآليات والمركبات، التوريد والخدمات اللوجستية، وتنفيذ الأعمال المدنية والميدانية. هذا التكامل يساعد على تبسيط التنسيق بين احتياجات المشروع وتوفير الموارد المناسبة في الوقت المناسب، مع التركيز على الجودة والسلامة والالتزام والموثوقية في مختلف مراحل التنفيذ.',
+                        'en' => 'At Wadi Al Rayan, we work as an integrated project partner rather than a single-service provider. Our involvement starts with understanding project requirements and scope, then extends through engineering support, technical manpower, equipment and vehicles, procurement, logistics, civil works and field execution. This integrated approach helps simplify coordination, align resources with site needs and support efficient delivery while maintaining a strong focus on quality, safety, commitment and reliability.',
                     ],
                 ],
                 [
                     ['why_choose_us_intro'],
                     [
-                        'ar' => 'حلول متكاملة تجمع بين الخبرة الفنية والموثوقية والمرونة التشغيلية والالتزام بالجودة والسلامة.',
-                        'en' => 'Integrated solutions built around technical expertise, reliability, operational flexibility, quality and safety.',
+                        'ar' => 'لأن المشاريع الناجحة تحتاج إلى أكثر من مورد واحد، نوفر منظومة مترابطة من الخدمات الهندسية والتشغيلية والتنفيذية، مع مرونة في توفير الكوادر والمعدات والمواد ودعم المواقع وفق نطاق العمل واحتياجات المشروع، وبمنهج يركز على الجودة والسلامة والوضوح والالتزام.',
+                        'en' => 'Successful projects require more than a single supplier. We provide connected engineering, operational and execution capabilities with flexible manpower, equipment, materials and site support aligned with project scope, while focusing on quality, safety, transparency and commitment.',
                     ],
                 ],
                 [
                     ['hse_intro'],
                     [
-                        'ar' => 'نضع الصحة والسلامة والبيئة في صميم عملياتنا، ونعمل على تعزيز الممارسات المسؤولة وتقييم المخاطر وحماية الأفراد والمعدات والمواقع.',
-                        'en' => 'We place health, safety and environmental responsibility at the center of our operations through responsible practices, risk awareness and protection of people, equipment and sites.',
+                        'ar' => 'نضع الصحة والسلامة والبيئة ضمن أولويات التخطيط والتنفيذ، ونعمل على تعزيز الممارسات المسؤولة من خلال الوعي بالمخاطر، تنظيم مواقع العمل، الاستخدام المناسب لمعدات الوقاية، العناية بسلامة الأفراد والمعدات، والمحافظة على بيئة عمل منظمة تتوافق مع متطلبات المشروع.',
+                        'en' => 'Health, safety and environmental responsibility are integrated into our planning and execution approach through risk awareness, organized work sites, appropriate protective measures, attention to people and equipment safety, and disciplined practices aligned with project requirements.',
                     ],
                 ],
                 [
                     ['final_cta_content'],
                     [
-                        'ar' => 'هل تبحث عن شريك موثوق لمشروعك القادم؟ تواصل معنا لدراسة متطلبات مشروعك وتقديم الحل المناسب.',
-                        'en' => 'Looking for a reliable partner for your next project? Contact us to review your requirements and identify the right solution.',
+                        'ar' => 'هل تخطط لمشروع نفطي أو إنشائي أو مشروع بنية تحتية؟ شاركنا متطلباتك، وسنعمل على دراسة نطاق العمل وتحديد الخدمات والموارد المناسبة لبناء حل متكامل يدعم مشروعك من التخطيط إلى التنفيذ.',
+                        'en' => 'Planning an oilfield, construction or infrastructure project? Share your requirements with us and we will review the scope, identify the appropriate services and resources, and help build an integrated solution from planning through execution.',
                     ],
                 ],
             ];
 
             foreach ($values as [$properties, $value]) {
-                $this->seedFirstEmptySetting($settings, $properties, $value);
+                $this->seedSettingIfEmptyOrLegacy($settings, $properties, $value);
             }
 
             // The statistics setting now exists through its dedicated settings migration.
@@ -1209,6 +1209,134 @@ class ProductionContentSeeder extends Seeder
                 return;
             }
         }
+    }
+
+    /**
+     * Seed a setting when it is empty, or upgrade it when its current value is
+     * exactly one of the known values from the previous production seeder.
+     *
+     * This allows this enhanced content release to update the text that was
+     * seeded earlier without overwriting content that an administrator has
+     * already customized from Filament.
+     */
+    private function seedSettingIfEmptyOrLegacy(
+        object $settings,
+        array $properties,
+        mixed $value
+    ): bool {
+        $legacyValues = $this->legacySettingValues($properties);
+
+        foreach ($properties as $property) {
+            if (! property_exists($settings, $property)) {
+                continue;
+            }
+
+            try {
+                $reflection = new ReflectionProperty($settings, $property);
+                $initialized = $reflection->isInitialized($settings);
+
+                if (! $initialized) {
+                    $settings->{$property} = $value;
+                    return true;
+                }
+
+                $current = $settings->{$property};
+
+                if ($this->isEmptyValue($current)) {
+                    $settings->{$property} = $value;
+                    return true;
+                }
+
+                foreach ($legacyValues as $legacyValue) {
+                    if ($current === $legacyValue) {
+                        $settings->{$property} = $value;
+                        return true;
+                    }
+                }
+
+                // Existing non-empty content that does not match our old seed
+                // is treated as an administrator customization and preserved.
+                return false;
+            } catch (Throwable $e) {
+                $this->command?->warn(
+                    "Could not seed setting {$property}: {$e->getMessage()}"
+                );
+
+                return false;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Previous content values that are safe to upgrade automatically.
+     */
+    private function legacySettingValues(array $properties): array
+    {
+        $key = $properties[0] ?? null;
+
+        return match ($key) {
+            'company_description_ar' => [
+                'شركة وادي الريان للمقاولات العامة والخدمات النفطية شركة متخصصة في تقديم الحلول المتكاملة لقطاعات النفط والغاز والبنية التحتية والمشاريع الإنشائية والصناعية. تجمع الشركة بين الخبرة الفنية والكفاءة التشغيلية لتوفير خدمات موثوقة وعالية الجودة تلبي احتياجات المشاريع المختلفة، وتشمل أعمالها المقاولات العامة والخدمات النفطية والأعمال الهندسية والبنية التحتية والطرق وخطوط الأنابيب وتأجير المعدات والآليات وتوفير القوى العاملة الفنية والتوريد والدعم اللوجستي.',
+            ],
+            'company_description_en' => [
+                'Wadi Al Rayan General Contracting & Oilfield Services provides integrated solutions for the oil and gas, infrastructure, construction and industrial sectors. Our capabilities cover general contracting, oilfield support, engineering, infrastructure and road works, pipeline support, equipment rental, technical manpower supply, procurement and logistics support.',
+            ],
+            'vision_ar' => [
+                'أن نكون من الشركات الموثوقة والرائدة في مجال المقاولات العامة والخدمات النفطية والبنية التحتية، وأن نساهم في تنفيذ مشاريع ذات قيمة مستدامة من خلال حلول عملية ومهنية ترتكز على الجودة والسلامة والكفاءة التشغيلية.',
+            ],
+            'vision_en' => [
+                'To be a trusted and leading provider of general contracting, oilfield services and infrastructure solutions, contributing to sustainable projects through professional execution, quality, safety and operational efficiency.',
+            ],
+            'mission_ar' => [
+                'تقديم خدمات وحلول متكاملة لقطاعات النفط والغاز والمقاولات والبنية التحتية من خلال الجمع بين الخبرة الفنية والموارد المؤهلة والإدارة الفعالة للمشاريع والالتزام بالجودة والسلامة.',
+            ],
+            'mission_en' => [
+                'To provide integrated services for oil and gas, construction and infrastructure projects by combining technical expertise, qualified resources, effective project management, quality and safety.',
+            ],
+            'footer_text_ar' => [
+                'وادي الريان للمقاولات العامة والخدمات النفطية تقدم حلولاً متكاملة للمشاريع النفطية والإنشائية والبنية التحتية من خلال خدمات هندسية وتشغيلية موثوقة.',
+            ],
+            'footer_text_en' => [
+                'Wadi Al Rayan General Contracting & Oilfield Services provides integrated solutions for oilfield, construction and infrastructure projects through reliable engineering and operational services.',
+            ],
+            'default_seo_description_ar' => [
+                'حلول متكاملة في المقاولات العامة والخدمات النفطية والبنية التحتية والطرق وخطوط الأنابيب والمعدات والتوريد والخدمات الهندسية.',
+            ],
+            'default_seo_description_en' => [
+                'Integrated general contracting, oilfield services, infrastructure, road works, pipeline support, equipment, procurement and engineering solutions.',
+            ],
+            'hero_title' => [[
+                'ar' => 'حلول متكاملة للمقاولات والخدمات النفطية',
+                'en' => 'Integrated Solutions for Contracting & Oilfield Services',
+            ]],
+            'hero_subtitle' => [[
+                'ar' => 'نقدم حلولاً متكاملة لقطاعات النفط والغاز والبنية التحتية والمشاريع الإنشائية، من التخطيط والدراسات الهندسية إلى التنفيذ والتوريد والدعم التشغيلي.',
+                'en' => 'Supporting oil and gas, infrastructure and construction projects through engineering, execution, procurement and operational support.',
+            ]],
+            'about_heading' => [[
+                'ar' => 'شريك موثوق للمشاريع الطموحة',
+                'en' => 'A Trusted Partner for Ambitious Projects',
+            ]],
+            'about_content' => [[
+                'ar' => 'في وادي الريان نعمل على توفير منظومة متكاملة من الخدمات التي تساعد عملاءنا على تنفيذ مشاريعهم بكفاءة، بداية من الدراسات والتخطيط وحتى توفير الموارد والمعدات والتنفيذ والدعم التشغيلي. نعتمد على فهم متطلبات كل مشروع واختيار الحلول المناسبة لطبيعة الموقع ونطاق الأعمال، مع التركيز على الجودة والسلامة والالتزام.',
+                'en' => 'At Wadi Al Rayan, we provide integrated services that support our clients throughout the project lifecycle — from engineering and planning to resource mobilization, execution, supply and operational support. We focus on understanding each project requirement and delivering practical solutions with a strong commitment to quality, safety and reliability.',
+            ]],
+            'why_choose_us_intro' => [[
+                'ar' => 'حلول متكاملة تجمع بين الخبرة الفنية والموثوقية والمرونة التشغيلية والالتزام بالجودة والسلامة.',
+                'en' => 'Integrated solutions built around technical expertise, reliability, operational flexibility, quality and safety.',
+            ]],
+            'hse_intro' => [[
+                'ar' => 'نضع الصحة والسلامة والبيئة في صميم عملياتنا، ونعمل على تعزيز الممارسات المسؤولة وتقييم المخاطر وحماية الأفراد والمعدات والمواقع.',
+                'en' => 'We place health, safety and environmental responsibility at the center of our operations through responsible practices, risk awareness and protection of people, equipment and sites.',
+            ]],
+            'final_cta_content' => [[
+                'ar' => 'هل تبحث عن شريك موثوق لمشروعك القادم؟ تواصل معنا لدراسة متطلبات مشروعك وتقديم الحل المناسب.',
+                'en' => 'Looking for a reliable partner for your next project? Contact us to review your requirements and identify the right solution.',
+            ]],
+            default => [],
+        };
     }
 
     /**

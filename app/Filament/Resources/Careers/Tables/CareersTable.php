@@ -15,8 +15,14 @@ class CareersTable
     {
         return $table
             ->columns([
+                TextColumn::make('title')->label('العنوان')
+                    ->state(fn ($record) => $record->getTranslation('title', 'ar', useFallbackLocale: true))
+                    ->searchable(query: fn ($query, string $search) => $query->where('title->ar', 'like', "%{$search}%")->orWhere('title->en', 'like', "%{$search}%")),
                 TextColumn::make('department')->label('القسم')
                     ->searchable(),
+                TextColumn::make('location')->label('الموقع')
+                    ->state(fn ($record) => $record->getTranslation('location', 'ar', useFallbackLocale: true))
+                    ->searchable(query: fn ($query, string $search) => $query->where('location->ar', 'like', "%{$search}%")->orWhere('location->en', 'like', "%{$search}%")),
                 TextColumn::make('employment_type')->label('النوع')
                     ->searchable(),
                 TextColumn::make('closing_date')->label('تاريخ الإغلاق')

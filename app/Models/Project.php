@@ -50,4 +50,16 @@ class Project extends Model
     {
         return $this->belongsTo(Industry::class);
     }
+
+    protected static function booted()
+    {
+        static::saving(function ($project) {
+            $fullDesc = $project->getTranslations('full_description');
+            if (empty($fullDesc)) {
+                $project->setTranslations('description', ['ar' => '', 'en' => '']);
+            } else {
+                $project->setTranslations('description', $fullDesc);
+            }
+        });
+    }
 }

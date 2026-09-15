@@ -3,8 +3,9 @@
 namespace App\Filament\Resources\EquipmentCategories\Schemas;
 
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
 
 class EquipmentCategoryForm
 {
@@ -12,9 +13,21 @@ class EquipmentCategoryForm
     {
         return $schema
             ->components([
-                Textarea::make('name')->label('الاسم')
-                    ->required()
-                    ->columnSpanFull(),
+                Tabs::make('Translations')
+                    ->tabs([
+                        Tab::make('العربية')
+                            ->schema([
+                                TextInput::make('name.ar')->label('الاسم بالعربية')
+                                    ->required()
+                                    ->columnSpanFull(),
+                            ]),
+                        Tab::make('English')
+                            ->schema([
+                                TextInput::make('name.en')->label('Name in English')
+                                    ->required()
+                                    ->columnSpanFull(),
+                            ]),
+                    ])->columnSpanFull(),
                 TextInput::make('slug')->label('الرابط')
                     ->required(),
             ]);

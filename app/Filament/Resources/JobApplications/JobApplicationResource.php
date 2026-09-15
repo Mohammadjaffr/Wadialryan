@@ -23,7 +23,7 @@ class JobApplicationResource extends Resource
     protected static ?string $model = JobApplication::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static \UnitEnum|string|null $navigationGroup = 'Recruitment';
+    protected static \UnitEnum|string|null $navigationGroup = 'التوظيف';
 
     protected static ?string $recordTitleAttribute = 'name';
 

@@ -33,4 +33,16 @@ class Service extends Model
     {
         return $this->belongsToMany(Project::class);
     }
+
+    protected static function booted()
+    {
+        static::saving(function ($service) {
+            $fullDesc = $service->getTranslations('full_description');
+            if (empty($fullDesc)) {
+                $service->setTranslations('description', ['ar' => '', 'en' => '']);
+            } else {
+                $service->setTranslations('description', $fullDesc);
+            }
+        });
+    }
 }

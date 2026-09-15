@@ -1,0 +1,66 @@
+--- app/Filament/Resources\Careers\Tables\CareersTable.php ---
+Searchable: 2
+Sortable: 3
+Filters: 0
+Actions: 1
+BulkActions: 1
+--- app/Filament/Resources\Certifications\Tables\CertificationsTable.php ---
+Searchable: 3
+Sortable: 5
+Filters: 0
+Actions: 1
+BulkActions: 1
+--- app/Filament/Resources\Clients\Tables\ClientsTable.php ---
+Searchable: 3
+Sortable: 3
+Filters: 0
+Actions: 1
+BulkActions: 1
+--- app/Filament/Resources\ContactMessages\Tables\ContactMessagesTable.php ---
+Searchable: 8
+Sortable: 2
+Filters: 0
+Actions: 1
+BulkActions: 1
+--- app/Filament/Resources\Equipment\Tables\EquipmentTable.php ---
+Searchable: 6
+Sortable: 4
+Filters: 0
+Actions: 1
+BulkActions: 1
+--- app/Filament/Resources\EquipmentCategories\Tables\EquipmentCategoriesTable.php ---
+Searchable: 1
+Sortable: 2
+Filters: 0
+Actions: 1
+BulkActions: 1
+--- app/Filament/Resources\Industries\Tables\IndustriesTable.php ---
+Searchable: 2
+Sortable: 3
+Filters: 0
+Actions: 1
+BulkActions: 1
+--- app/Filament/Resources\JobApplications\Tables\JobApplicationsTable.php ---
+Searchable: 5
+Sortable: 3
+Filters: 0
+Actions: 1
+BulkActions: 1
+--- app/Filament/Resources\Projects\Tables\ProjectsTable.php ---
+Searchable: 3
+Sortable: 7
+Filters: 0
+Actions: 1
+BulkActions: 1
+--- app/Filament/Resources\QuoteRequests\Tables\QuoteRequestsTable.php ---
+Searchable: 10
+Sortable: 2
+Filters: 0
+Actions: 1
+BulkActions: 1
+--- app/Filament/Resources\Services\Tables\ServicesTable.php ---
+Searchable: 2
+Sortable: 3
+Filters: 0
+Actions: 1
+BulkActions: 1

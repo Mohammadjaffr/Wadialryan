@@ -16,6 +16,9 @@ class ProjectsTable
     {
         return $table
             ->columns([
+                TextColumn::make('title')->label('العنوان')
+                    ->state(fn ($record) => $record->getTranslation('title', 'ar', useFallbackLocale: true))
+                    ->searchable(query: fn ($query, string $search) => $query->where('title->ar', 'like', "%{$search}%")->orWhere('title->en', 'like', "%{$search}%")),
                 TextColumn::make('slug')->label('الرابط')
                     ->searchable(),
                 TextColumn::make('category')

@@ -45,7 +45,11 @@ class HomepageSettingsPage extends SettingsPage
                         Forms\Components\FileUpload::make('hero_image')->label('الصورة')->image()->directory('homepage')
                             ->saveUploadedFileUsing(fn ($file) => app(\App\Services\ImageService::class)->saveImage($file, 'homepage'))
                             ->deleteUploadedFileUsing(fn ($file) => app(\App\Services\ImageService::class)->deleteImage($file)),
+                            Forms\Components\FileUpload::make('about_section_image')->label('صورة من نحن')->image()->directory('homepage')
+                            ->saveUploadedFileUsing(fn ($file) => app(\App\Services\ImageService::class)->saveImage($file, 'homepage'))
+                            ->deleteUploadedFileUsing(fn ($file) => app(\App\Services\ImageService::class)->deleteImage($file)),
                     ]),
+                    
 
                 \Filament\Schemas\Components\Section::make('Calls to Action')
                     ->schema([
@@ -95,7 +99,13 @@ class HomepageSettingsPage extends SettingsPage
                                 Forms\Components\TextInput::make('value')->label('Value')->required(),
                                 Forms\Components\TextInput::make('prefix')->label('Prefix'),
                                 Forms\Components\TextInput::make('suffix')->label('Suffix'),
-                                Forms\Components\TextInput::make('icon')->label('Icon (e.g. heroicon-o-users)'),
+                                \Guava\IconPicker\Forms\Components\IconPicker::make('icon')
+                                    ->label('Icon')
+                                    ->columns([
+                                        'default' => 1,
+                                        'lg' => 3,
+                                        '2xl' => 5,
+                                    ]),
                                 Forms\Components\Toggle::make('active')->label('Active')->default(true),
                             ])
                             ->columns(3)

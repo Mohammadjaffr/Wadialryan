@@ -33,9 +33,7 @@ class ServiceForm
                     ->default(null)
                     ->columnSpanFull(),
 
-                Textarea::make('description')->label('الوصف الأساسي')
-                    ->required()
-                    ->columnSpanFull(),
+
 
                 // 🚨 إصلاح مشكلة [object Object] عبر استخدام TagsInput بدلاً من Textarea
                 TagsInput::make('capabilities')->label('القدرات والمميزات')

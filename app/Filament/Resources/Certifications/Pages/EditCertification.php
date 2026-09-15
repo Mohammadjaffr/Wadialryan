@@ -16,4 +16,15 @@ class EditCertification extends EditRecord
             DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        $record = $this->getRecord();
+        if (method_exists($record, 'getTranslatableAttributes')) {
+            foreach ($record->getTranslatableAttributes() as $attribute) {
+                $data[$attribute] = $record->getTranslations($attribute);
+            }
+        }
+        return $data;
+    }
 }

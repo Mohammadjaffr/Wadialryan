@@ -14,6 +14,9 @@ class EquipmentCategoriesTable
     {
         return $table
             ->columns([
+                TextColumn::make('name')->label('الاسم')
+                    ->state(fn ($record) => $record->getTranslation('name', 'ar', useFallbackLocale: true))
+                    ->searchable(query: fn ($query, string $search) => $query->where('name->ar', 'like', "%{$search}%")->orWhere('name->en', 'like', "%{$search}%")),
                 TextColumn::make('slug')->label('الرابط')
                     ->searchable(),
                 TextColumn::make('created_at')

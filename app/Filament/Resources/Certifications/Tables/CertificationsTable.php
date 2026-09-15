@@ -16,6 +16,9 @@ class CertificationsTable
     {
         return $table
             ->columns([
+                TextColumn::make('name')->label('الاسم')
+                    ->state(fn ($record) => $record->getTranslation('name', 'ar', useFallbackLocale: true))
+                    ->searchable(query: fn ($query, string $search) => $query->where('name->ar', 'like', "%{$search}%")->orWhere('name->en', 'like', "%{$search}%")),
                 TextColumn::make('issuer')->label('جهة الإصدار')
                     ->searchable(),
                 TextColumn::make('certificate_number')->label('رقم الشهادة')
