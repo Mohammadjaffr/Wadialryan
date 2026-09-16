@@ -45,6 +45,19 @@ class CompanySettings extends Settings
     public array $seo_description;
     public ?string $og_image;
 
+    public array $about_story;
+    public array $mission;
+    public array $vision;
+    
+    public array $about_subtitle;
+    public ?string $about_image;
+    
+    public array $hse_badge;
+    public array $hse_title;
+    public array $hse_text;
+    public array $hse_list;
+    public ?string $hse_image;
+
     public static function group(): string
     {
         return 'company';

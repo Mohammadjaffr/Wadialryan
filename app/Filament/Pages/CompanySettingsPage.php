@@ -7,6 +7,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
 
+
 class CompanySettingsPage extends SettingsPage
 {
     public function getTitle(): string
@@ -105,6 +106,49 @@ class CompanySettingsPage extends SettingsPage
                                 Forms\Components\FileUpload::make('og_image')->label('الصورة')->image()->directory('seo')
                                     ->saveUploadedFileUsing(fn ($file) => app(\App\Services\ImageService::class)->saveImage($file, 'seo'))
                                     ->deleteUploadedFileUsing(fn ($file) => app(\App\Services\ImageService::class)->deleteImage($file)),
+                            ]),
+                        \Filament\Schemas\Components\Tabs\Tab::make('About Page')
+                            ->label('عن الشركة')
+                            ->schema([
+                                Forms\Components\TextInput::make('about_subtitle.ar')->label('Header Subtitle AR')->required(),
+                                Forms\Components\TextInput::make('about_subtitle.en')->label('Header Subtitle EN')->required(),
+                                
+                                Forms\Components\RichEditor::make('about_story.ar')->label('About Story AR (نبذة عن الشركة)')->required(),
+                                Forms\Components\RichEditor::make('about_story.en')->label('About Story EN')->required(),
+                                
+                                Forms\Components\RichEditor::make('vision.ar')->label('Vision AR (الرؤية)'),
+                                Forms\Components\RichEditor::make('vision.en')->label('Vision EN'),
+                                
+                                Forms\Components\RichEditor::make('mission.ar')->label('Mission AR (الرسالة)'),
+                                Forms\Components\RichEditor::make('mission.en')->label('Mission EN'),
+                                
+                                Forms\Components\FileUpload::make('about_image')->label('صورة نبذة عن الشركة')->image()->directory('about')
+                                    ->saveUploadedFileUsing(fn ($file) => app(\App\Services\ImageService::class)->saveImage($file, 'about'))
+                                    ->deleteUploadedFileUsing(fn ($file) => app(\App\Services\ImageService::class)->deleteImage($file)),
+                                
+                                \Filament\Schemas\Components\Section::make('HSE (الصحة والسلامة المهنية)')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('hse_badge.ar')->label('HSE Badge AR (شعار قسم السلامة)')->required(),
+                                        Forms\Components\TextInput::make('hse_badge.en')->label('HSE Badge EN')->required(),
+                                        
+                                        Forms\Components\TextInput::make('hse_title.ar')->label('HSE Title AR (عنوان السلامة)')->required(),
+                                        Forms\Components\TextInput::make('hse_title.en')->label('HSE Title EN')->required(),
+                                        
+                                        Forms\Components\Textarea::make('hse_text.ar')->label('HSE Text AR (نص السلامة)')->required(),
+                                        Forms\Components\Textarea::make('hse_text.en')->label('HSE Text EN')->required(),
+                                        
+                                        Forms\Components\Repeater::make('hse_list')
+                                            ->label('HSE Points (نقاط السلامة)')
+                                            ->schema([
+                                                Forms\Components\TextInput::make('ar')->label('Point AR (النقطة بالعربي)')->required(),
+                                                Forms\Components\TextInput::make('en')->label('Point EN (النقطة بالإنجليزي)')->required(),
+                                            ])
+                                            ->columnSpanFull(),
+                                            
+                                        Forms\Components\FileUpload::make('hse_image')->label('صورة قسم السلامة')->image()->directory('about')
+                                            ->saveUploadedFileUsing(fn ($file) => app(\App\Services\ImageService::class)->saveImage($file, 'about'))
+                                            ->deleteUploadedFileUsing(fn ($file) => app(\App\Services\ImageService::class)->deleteImage($file)),
+                                    ])->collapsible(),
                             ]),
                     ])
                     ->columnSpanFull(),
