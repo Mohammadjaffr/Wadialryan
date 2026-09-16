@@ -69,21 +69,21 @@
                         @endif
                     </div>
                     <div class="lg:w-1/2 w-full {{ $index % 2 == 0 ? 'order-1 lg:order-2' : '' }}">
-                        <div
-                            class="aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 flex items-center justify-center group-hover:-translate-y-2 transition-transform duration-500 relative">
-                            @if ($service->main_image)
-                                <img src="{{ $service->imageUrl('main_image') }}"
-                                    class="object-cover relative z-10 w-full h-full transition-transform duration-700 group-hover:scale-105"
-                                    alt="{{ $service->title }}">
-                            @else
-                                <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop"
-                                    class="object-cover relative z-10 w-full h-full transition-transform duration-700 group-hover:scale-105"
-                                    alt="{{ $service->title }}">
-                            @endif
-                            <div
-                                class="absolute inset-0 z-20 transition-colors duration-500 bg-brand-primary/5 group-hover:bg-transparent">
-                            </div>
-                        </div>
+                       <div
+    class="aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 flex items-center justify-center group-hover:-translate-y-2 transition-transform duration-500 relative p-6">
+    @if ($service->main_image)
+        <img src="{{ $service->imageUrl('main_image') }}"
+            class="object-contain object-center relative z-10 w-full h-full transition-transform duration-700 group-hover:scale-105"
+            alt="{{ $service->title }}">
+    @else
+        <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop"
+            class="object-cover object-center relative z-10 w-full h-full transition-transform duration-700 group-hover:scale-105"
+            alt="{{ $service->title }}">
+    @endif
+    <div
+        class="absolute inset-0 z-20 transition-colors duration-500 pointer-events-none bg-brand-primary/5 group-hover:bg-transparent">
+    </div>
+</div>
                     </div>
                 </div>
             @empty

@@ -1,0 +1,21 @@
+{
+  "name": "وادي الريان للمقاولات العامة والخدمات النفطية",
+  "short_name": "وادي الريان",
+  "icons": [
+    {
+      "src": "/assets/favicons/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/favicons/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "theme_color": "#13312A",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

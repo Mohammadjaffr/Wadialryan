@@ -7,32 +7,102 @@
 
     @php
         $companySettings = app(\App\Settings\CompanySettings::class);
+        $imageService = app(\App\Services\ImageService::class);
         $locale = app()->getLocale();
-        $companyName = $companySettings->company_name[$locale] ?? 'Wadi Al Rayan';
-        $seoTitle = $companySettings->seo_title[$locale] ?? $companyName;
-        $seoDesc = $companySettings->seo_description[$locale] ?? '';
+        $isRtl = $locale === 'ar';
+
+        // استخراج البيانات حسب اللغة المفعلة
+        $companyName =
+            $companySettings->company_name[$locale] ??
+            ($companySettings->company_name['ar'] ?? 'وادي الريان للمقاولات العامة والخدمات النفطية');
+            
+        $seoTitle =
+            $title ?? ($companySettings->seo_title[$locale] ?? ($companySettings->seo_title['ar'] ?? $companyName));
+            
+        $seoDesc =
+            $companySettings->seo_description[$locale] ??
+            ($companySettings->seo_description['ar'] ??
+                'حلول متكاملة لقطاعات النفط والغاز والبنية التحتية والمشاريع الإنشائية');
+
+        // معالجة الصور ومسارات الأيقونات
+        $ogImageUrl = $companySettings->og_image
+            ? $imageService->url($companySettings->og_image)
+            : ($companySettings->logo
+                ? $imageService->url($companySettings->logo)
+                : asset('images/preview.png'));
+
+        // في حال رفع أيقونة مخصصة من لوحة التحكم نستخدمها، عدا ذلك نعتمد مجلد assets/favicons
+        $customFavicon = $companySettings->favicon ? $imageService->url($companySettings->favicon) : null;
+        $themeColor = $companySettings->primary_color ?? '#13312A';
+
+        $canonicalUrl = url()->current();
+        $siteUrl = url('/');
     @endphp
 
-    <title>{{ $title ?? $seoTitle }}</title>
+    <!-- SEO Meta Tags الأساسية -->
+    <title>{{ $seoTitle }}</title>
     <meta name="description" content="{{ $seoDesc }}">
+    <meta name="keywords" content="مقاولات عامة, خدمات نفطية, وادي الريان, نفط وغاز, حفر آبار, بنية تحتية, صيانة حقول, اليمن">
+    <meta name="author" content="{{ $companyName }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ $canonicalUrl }}">
 
-    @if ($companySettings->favicon)
-        <link rel="icon" href="{{ app(\App\Services\ImageService::class)->url($companySettings->favicon) }}">
+    <!-- Favicon & PWA Icons -->
+    <link rel="icon" type="image/x-icon" href="{{ $customFavicon ?? asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ $customFavicon ?? asset('assets/favicons/favicon-96x96.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ $customFavicon ?? asset('assets/favicons/apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ asset('assets/favicons/site.webmanifest') }}">
+
+    <!-- Android & Windows Tiles -->
+    <meta name="theme-color" content="{{ $themeColor }}">
+    <meta name="msapplication-TileColor" content="{{ $themeColor }}">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/favicons/web-app-manifest-192x192.png') }}">
+
+    <!-- Open Graph Tags (WhatsApp / Facebook / LinkedIn) -->
+    <meta property="og:locale" content="{{ $isRtl ? 'ar_AR' : 'en_US' }}">
+    <meta property="og:site_name" content="{{ $companyName }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ $seoTitle }}">
+    <meta property="og:description" content="{{ $seoDesc }}">
+    <meta property="og:url" content="{{ $canonicalUrl }}">
+    <meta property="og:image" content="{{ $ogImageUrl }}">
+    <meta property="og:image:secure_url" content="{{ $ogImageUrl }}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ $companyName }}">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    @if (!empty($companySettings->x))
+        <meta name="twitter:site" content="{{ '@' . ltrim(parse_url($companySettings->x, PHP_URL_PATH), '/') }}">
     @endif
+    <meta name="twitter:title" content="{{ $seoTitle }}">
+    <meta name="twitter:description" content="{{ $seoDesc }}">
+    <meta name="twitter:image" content="{{ $ogImageUrl }}">
 
-    <!-- JSON-LD Schema for Local SEO -->
+    <!-- Structured Data (JSON-LD Schema) لتعزيز الـ Local SEO -->
     <script type="application/ld+json">
     {
       "@@context": "https://schema.org",
-      "@@type": "LocalBusiness",
+      "@@type": "GeneralContractor",
       "name": "{{ $companyName }}",
-      "image": "{{ app(\App\Services\ImageService::class)->url($companySettings->logo, 'images/logo.png') }}",
-      "@@id": "{{ url('/') }}",
-      "url": "{{ url('/') }}",
-      "telephone": "{{ $companySettings->phone }}",
+      "legalName": "{{ $companySettings->legal_name[$locale] ?? $companyName }}",
+      "url": "{{ $siteUrl }}",
+      "logo": "{{ $ogImageUrl }}",
+      "image": "{{ $ogImageUrl }}",
+      "telephone": "{{ $companySettings->phone ?? '' }}",
+      "email": "{{ $companySettings->general_email ?? '' }}",
+      @if(!empty($companySettings->latitude) && !empty($companySettings->longitude))
+      "geo": {
+        "@@type": "GeoCoordinates",
+        "latitude": "{{ $companySettings->latitude }}",
+        "longitude": "{{ $companySettings->longitude }}"
+      },
+      @endif
       "address": {
         "@@type": "PostalAddress",
-        "addressCountry": "{{ $companySettings->address[$locale] ?? '' }}"
+        "addressCountry": "{{ $companySettings->address[$locale] ?? 'YE' }}"
       }
     }
     </script>
@@ -42,7 +112,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Vite & Tailwind -->
+    <!-- Assets (Vite & Tailwind) -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
@@ -78,8 +148,11 @@
     </div>
 
     <!-- Navbar -->
-    <nav :class="{ 'bg-white/95 backdrop-blur-md shadow-sm py-4 border-b border-gray-200': scrolled, 'bg-white py-6 border-b border-gray-100':
-            !scrolled }"
+    <nav :class="{
+        'bg-white/95 backdrop-blur-md shadow-sm py-4 border-b border-gray-200': scrolled,
+        'bg-white py-6 border-b border-gray-100':
+            !scrolled
+    }"
         class="sticky top-0 z-50 w-full transition-all duration-500">
         <div class="container flex justify-between items-center px-4 mx-auto max-w-7xl md:px-6">
             <!-- Logo -->
