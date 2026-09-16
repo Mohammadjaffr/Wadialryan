@@ -15,10 +15,10 @@
         $companyName =
             $companySettings->company_name[$locale] ??
             ($companySettings->company_name['ar'] ?? 'وادي الريان للمقاولات العامة والخدمات النفطية');
-            
+
         $seoTitle =
             $title ?? ($companySettings->seo_title[$locale] ?? ($companySettings->seo_title['ar'] ?? $companyName));
-            
+
         $seoDesc =
             $companySettings->seo_description[$locale] ??
             ($companySettings->seo_description['ar'] ??
@@ -42,15 +42,18 @@
     <!-- SEO Meta Tags الأساسية -->
     <title>{{ $seoTitle }}</title>
     <meta name="description" content="{{ $seoDesc }}">
-    <meta name="keywords" content="مقاولات عامة, خدمات نفطية, وادي الريان, نفط وغاز, حفر آبار, بنية تحتية, صيانة حقول, اليمن">
+    <meta name="keywords"
+        content="مقاولات عامة, خدمات نفطية, وادي الريان, نفط وغاز, حفر آبار, بنية تحتية, صيانة حقول, اليمن">
     <meta name="author" content="{{ $companyName }}">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="{{ $canonicalUrl }}">
 
     <!-- Favicon & PWA Icons -->
     <link rel="icon" type="image/x-icon" href="{{ $customFavicon ?? asset('favicon.ico') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ $customFavicon ?? asset('assets/favicons/favicon-96x96.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ $customFavicon ?? asset('assets/favicons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96"
+        href="{{ $customFavicon ?? asset('assets/favicons/favicon-96x96.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ $customFavicon ?? asset('assets/favicons/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('assets/favicons/site.webmanifest') }}">
 
     <!-- Android & Windows Tiles -->
@@ -267,19 +270,33 @@
                     @if ($companySettings->address)
                         <li class="flex gap-3 items-center">
                             <x-heroicon-o-map-pin class="flex-shrink-0 w-6 h-6 text-brand-secondary" />
-                            {{ $companySettings->address[$locale] ?? '' }}
+                            <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($companySettings->address[$locale] ?? '') }}"
+                                target="_blank" rel="noopener noreferrer" class="hover:underline">
+                                {{ $companySettings->address[$locale] ?? '' }}
+                            </a>
                         </li>
                     @endif
+
                     @if ($companySettings->phone)
+                        @php
+                            // تنظيف الرقم من أي مسافات أو رموز ليعمل رابط الواتساب بشكل سليم
+                            $cleanPhone = preg_replace('/[^0-9]/', '', $companySettings->phone);
+                        @endphp
                         <li class="flex gap-3 items-center">
                             <x-heroicon-o-phone class="flex-shrink-0 w-6 h-6 text-brand-secondary" />
-                            <span dir="ltr">{{ $companySettings->phone }}</span>
+                            <a href="https://wa.me/{{ $cleanPhone }}" target="_blank" rel="noopener noreferrer"
+                                dir="ltr" class="hover:underline">
+                                {{ $companySettings->phone }}
+                            </a>
                         </li>
                     @endif
+
                     @if ($companySettings->general_email)
                         <li class="flex gap-3 items-center">
                             <x-heroicon-o-envelope class="flex-shrink-0 w-6 h-6 text-brand-secondary" />
-                            {{ $companySettings->general_email }}
+                            <a href="mailto:{{ $companySettings->general_email }}" class="hover:underline">
+                                {{ $companySettings->general_email }}
+                            </a>
                         </li>
                     @endif
                 </ul>
