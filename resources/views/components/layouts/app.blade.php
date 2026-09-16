@@ -120,6 +120,7 @@
             font-family: 'Cairo', sans-serif;
         }
     </style>
+    <meta name="google-site-verification" content="oxULRXnOq12VaVa_o4sL5Kj8WJBn2_iQxjJBS4Q5k7Y" />
 </head>
 
 <body class="overflow-x-hidden antialiased text-gray-800 bg-gray-50 selection:bg-brand-secondary selection:text-white"
