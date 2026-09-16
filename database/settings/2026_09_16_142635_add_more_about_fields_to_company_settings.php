@@ -6,6 +6,19 @@ return new class extends SettingsMigration
 {
     public function up(): void
     {
+        $this->migrator->add('company.about_story', [
+            'ar' => '',
+            'en' => '',
+        ]);
+        $this->migrator->add('company.vision', [
+            'ar' => '',
+            'en' => '',
+        ]);
+        $this->migrator->add('company.mission', [
+            'ar' => '',
+            'en' => '',
+        ]);
+
         $this->migrator->add('company.about_subtitle', [
             'ar' => 'شريكك الموثوق في البناء والتشييد والخدمات الهندسية منذ أكثر من عقدين.',
             'en' => 'Your trusted partner in construction and engineering services for over two decades.'
