@@ -94,7 +94,7 @@
             "image": "{{ $ogImageUrl }}",
             "telephone": "{{ $companySettings->phone ?? '' }}",
             "email": "{{ $companySettings->general_email ?? '' }}",
-            @if(!empty($companySettings - > latitude) && !empty($companySettings - > longitude))
+            @if(!empty($companySettings->latitude) && !empty($companySettings->longitude))
             "geo": {
                 "@@type": "GeoCoordinates",
                 "latitude": "{{ $companySettings->latitude }}",
