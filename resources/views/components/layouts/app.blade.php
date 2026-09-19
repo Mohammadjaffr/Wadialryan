@@ -6,37 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     @php
-        $companySettings = app(\App\Settings\CompanySettings::class);
-        $imageService = app(\App\Services\ImageService::class);
-        $locale = app()->getLocale();
-        $isRtl = $locale === 'ar';
+    $companySettings = app(\App\Settings\CompanySettings::class);
+    $imageService = app(\App\Services\ImageService::class);
+    $locale = app()->getLocale();
+    $isRtl = $locale === 'ar';
 
-        // استخراج البيانات حسب اللغة المفعلة
-        $companyName =
-            $companySettings->company_name[$locale] ??
-            ($companySettings->company_name['ar'] ?? 'وادي الريان للمقاولات العامة والخدمات النفطية');
+    // استخراج البيانات حسب اللغة المفعلة
+    $companyName =
+    $companySettings->company_name[$locale] ??
+    ($companySettings->company_name['ar'] ?? 'وادي الريان للمقاولات العامة والخدمات النفطية');
 
-        $seoTitle =
-            $title ?? ($companySettings->seo_title[$locale] ?? ($companySettings->seo_title['ar'] ?? $companyName));
+    $seoTitle =
+    $title ?? ($companySettings->seo_title[$locale] ?? ($companySettings->seo_title['ar'] ?? $companyName));
 
-        $seoDesc =
-            $companySettings->seo_description[$locale] ??
-            ($companySettings->seo_description['ar'] ??
-                'حلول متكاملة لقطاعات النفط والغاز والبنية التحتية والمشاريع الإنشائية');
+    $seoDesc =
+    $companySettings->seo_description[$locale] ??
+    ($companySettings->seo_description['ar'] ??
+    'حلول متكاملة لقطاعات النفط والغاز والبنية التحتية والمشاريع الإنشائية');
 
-        // معالجة الصور ومسارات الأيقونات
-        $ogImageUrl = $companySettings->og_image
-            ? $imageService->url($companySettings->og_image)
-            : ($companySettings->logo
-                ? $imageService->url($companySettings->logo)
-                : asset('images/preview.png'));
+    // معالجة الصور ومسارات الأيقونات
+    $ogImageUrl = asset('images/wadi-whatsapp-preview.png');
 
-        // في حال رفع أيقونة مخصصة من لوحة التحكم نستخدمها، عدا ذلك نعتمد مجلد assets/favicons
-        $customFavicon = $companySettings->favicon ? $imageService->url($companySettings->favicon) : null;
-        $themeColor = $companySettings->primary_color ?? '#13312A';
+    // في حال رفع أيقونة مخصصة من لوحة التحكم نستخدمها، عدا ذلك نعتمد مجلد assets/favicons
+    $customFavicon = $companySettings->favicon ? $imageService->url($companySettings->favicon) : null;
+    $themeColor = $companySettings->primary_color ?? '#13312A';
 
-        $canonicalUrl = url()->current();
-        $siteUrl = url('/');
+    $canonicalUrl = url()->current();
+    $siteUrl = url('/');
     @endphp
 
     <!-- SEO Meta Tags الأساسية -->
@@ -65,20 +61,22 @@
     <meta property="og:locale" content="{{ $isRtl ? 'ar_AR' : 'en_US' }}">
     <meta property="og:site_name" content="{{ $companyName }}">
     <meta property="og:type" content="website">
+
     <meta property="og:title" content="{{ $seoTitle }}">
     <meta property="og:description" content="{{ $seoDesc }}">
     <meta property="og:url" content="{{ $canonicalUrl }}">
+
     <meta property="og:image" content="{{ $ogImageUrl }}">
     <meta property="og:image:secure_url" content="{{ $ogImageUrl }}">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="{{ $companyName }}">
+    <meta property="og:image:alt" content="وادي الريان - WADI ALRAYAN">
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     @if (!empty($companySettings->x))
-        <meta name="twitter:site" content="{{ '@' . ltrim(parse_url($companySettings->x, PHP_URL_PATH), '/') }}">
+    <meta name="twitter:site" content="{{ '@' . ltrim(parse_url($companySettings->x, PHP_URL_PATH), '/') }}">
     @endif
     <meta name="twitter:title" content="{{ $seoTitle }}">
     <meta name="twitter:description" content="{{ $seoDesc }}">
@@ -86,28 +84,27 @@
 
     <!-- Structured Data (JSON-LD Schema) لتعزيز الـ Local SEO -->
     <script type="application/ld+json">
-    {
-      "@@context": "https://schema.org",
-      "@@type": "GeneralContractor",
-      "name": "{{ $companyName }}",
-      "legalName": "{{ $companySettings->legal_name[$locale] ?? $companyName }}",
-      "url": "{{ $siteUrl }}",
-      "logo": "{{ $ogImageUrl }}",
-      "image": "{{ $ogImageUrl }}",
-      "telephone": "{{ $companySettings->phone ?? '' }}",
-      "email": "{{ $companySettings->general_email ?? '' }}",
-      @if(!empty($companySettings->latitude) && !empty($companySettings->longitude))
-      "geo": {
-        "@@type": "GeoCoordinates",
-        "latitude": "{{ $companySettings->latitude }}",
-        "longitude": "{{ $companySettings->longitude }}"
-      },
-      @endif
-      "address": {
-        "@@type": "PostalAddress",
-        "addressCountry": "{{ $companySettings->address[$locale] ?? 'YE' }}"
-      }
-    }
+        {
+            "@@context": "https://schema.org",
+            "@@type": "GeneralContractor",
+            "name": "{{ $companyName }}",
+            "legalName": "{{ $companySettings->legal_name[$locale] ?? $companyName }}",
+            "url": "{{ $siteUrl }}",
+            "logo": "{{ $ogImageUrl }}",
+            "image": "{{ $ogImageUrl }}",
+            "telephone": "{{ $companySettings->phone ?? '' }}",
+            "email": "{{ $companySettings->general_email ?? '' }}",
+            @if(!empty($companySettings - > latitude) && !empty($companySettings - > longitude))
+            "geo": {
+                "@@type": "GeoCoordinates",
+                "latitude": "{{ $companySettings->latitude }}",
+                "longitude": "{{ $companySettings->longitude }}"
+            },
+            @endif "address": {
+                "@@type": "PostalAddress",
+                "addressCountry": "{{ $companySettings->address[$locale] ?? 'YE' }}"
+            }
+        }
     </script>
 
     <!-- Google Fonts: Cairo -->
@@ -134,18 +131,18 @@
         <div class="container flex justify-between px-4 mx-auto max-w-7xl md:px-6">
             <div class="flex gap-6 items-center">
                 @if ($companySettings->phone)
-                    <span class="flex gap-2 items-center"><x-heroicon-s-phone class="w-4 h-4 text-brand-secondary" />
-                        <span dir="ltr">{{ $companySettings->phone }}</span></span>
+                <span class="flex gap-2 items-center"><x-heroicon-s-phone class="w-4 h-4 text-brand-secondary" />
+                    <span dir="ltr">{{ $companySettings->phone }}</span></span>
                 @endif
                 @if ($companySettings->general_email)
-                    <span class="flex gap-2 items-center"><x-heroicon-s-envelope class="w-4 h-4 text-brand-secondary" />
-                        {{ $companySettings->general_email }}</span>
+                <span class="flex gap-2 items-center"><x-heroicon-s-envelope class="w-4 h-4 text-brand-secondary" />
+                    {{ $companySettings->general_email }}</span>
                 @endif
             </div>
             <div class="flex gap-4 items-center">
                 @if ($companySettings->linkedin)
-                    <a href="{{ $companySettings->linkedin }}" target="_blank"
-                        class="transition-colors hover:text-brand-secondary">LinkedIn</a>
+                <a href="{{ $companySettings->linkedin }}" target="_blank"
+                    class="transition-colors hover:text-brand-secondary">LinkedIn</a>
                 @endif
             </div>
         </div>
@@ -162,12 +159,12 @@
             <!-- Logo -->
             <a href="/" class="flex gap-3 items-center text-3xl font-extrabold group">
                 @if ($companySettings->logo)
-                    <img src="{{ app(\App\Services\ImageService::class)->url($companySettings->logo) }}"
-                        alt="{{ $companyName }}"
-                        class="object-contain w-auto h-20 transition-transform duration-300 md:h-24 group-hover:scale-105">
+                <img src="{{ app(\App\Services\ImageService::class)->url($companySettings->logo) }}"
+                    alt="{{ $companyName }}"
+                    class="object-contain w-auto h-20 transition-transform duration-300 md:h-24 group-hover:scale-105">
                 @else
-                    <span
-                        class="tracking-wide text-brand-primary">{{ $companySettings->short_name ?? $companyName }}</span>
+                <span
+                    class="tracking-wide text-brand-primary">{{ $companySettings->short_name ?? $companyName }}</span>
                 @endif
             </a>
 
@@ -185,8 +182,8 @@
                     class="relative text-gray-600 transition-colors hover:text-brand-secondary after:absolute after:-bottom-1 after:right-0 after:w-0 after:h-0.5 after:bg-brand-secondary hover:after:w-full after:transition-all after:duration-300">{{ __('المعدات') }}</a>
 
                 @php
-                    $switchLang = $locale === 'ar' ? 'en' : 'ar';
-                    $switchText = $locale === 'ar' ? 'English' : 'عربي';
+                $switchLang = $locale === 'ar' ? 'en' : 'ar';
+                $switchText = $locale === 'ar' ? 'English' : 'عربي';
                 @endphp
                 <a href="{{ url('/lang/' . $switchLang) }}"
                     class="relative transition-colors text-brand-secondary hover:text-brand-primary">
@@ -268,36 +265,36 @@
                 <h4 class="mb-6 text-lg font-bold tracking-wider text-brand-secondary">{{ __('تواصل معنا') }}</h4>
                 <ul class="space-y-4 font-semibold text-gray-300">
                     @if ($companySettings->address)
-                        <li class="flex gap-3 items-center">
-                            <x-heroicon-o-map-pin class="flex-shrink-0 w-6 h-6 text-brand-secondary" />
-                            <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($companySettings->address[$locale] ?? '') }}"
-                                target="_blank" rel="noopener noreferrer" class="hover:underline">
-                                {{ $companySettings->address[$locale] ?? '' }}
-                            </a>
-                        </li>
+                    <li class="flex gap-3 items-center">
+                        <x-heroicon-o-map-pin class="flex-shrink-0 w-6 h-6 text-brand-secondary" />
+                        <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($companySettings->address[$locale] ?? '') }}"
+                            target="_blank" rel="noopener noreferrer" class="hover:underline">
+                            {{ $companySettings->address[$locale] ?? '' }}
+                        </a>
+                    </li>
                     @endif
 
                     @if ($companySettings->phone)
-                        @php
-                            // تنظيف الرقم من أي مسافات أو رموز ليعمل رابط الواتساب بشكل سليم
-                            $cleanPhone = preg_replace('/[^0-9]/', '', $companySettings->phone);
-                        @endphp
-                        <li class="flex gap-3 items-center">
-                            <x-heroicon-o-phone class="flex-shrink-0 w-6 h-6 text-brand-secondary" />
-                            <a href="https://wa.me/{{ $cleanPhone }}" target="_blank" rel="noopener noreferrer"
-                                dir="ltr" class="hover:underline">
-                                {{ $companySettings->phone }}
-                            </a>
-                        </li>
+                    @php
+                    // تنظيف الرقم من أي مسافات أو رموز ليعمل رابط الواتساب بشكل سليم
+                    $cleanPhone = preg_replace('/[^0-9]/', '', $companySettings->phone);
+                    @endphp
+                    <li class="flex gap-3 items-center">
+                        <x-heroicon-o-phone class="flex-shrink-0 w-6 h-6 text-brand-secondary" />
+                        <a href="https://wa.me/{{ $cleanPhone }}" target="_blank" rel="noopener noreferrer"
+                            dir="ltr" class="hover:underline">
+                            {{ $companySettings->phone }}
+                        </a>
+                    </li>
                     @endif
 
                     @if ($companySettings->general_email)
-                        <li class="flex gap-3 items-center">
-                            <x-heroicon-o-envelope class="flex-shrink-0 w-6 h-6 text-brand-secondary" />
-                            <a href="mailto:{{ $companySettings->general_email }}" class="hover:underline">
-                                {{ $companySettings->general_email }}
-                            </a>
-                        </li>
+                    <li class="flex gap-3 items-center">
+                        <x-heroicon-o-envelope class="flex-shrink-0 w-6 h-6 text-brand-secondary" />
+                        <a href="mailto:{{ $companySettings->general_email }}" class="hover:underline">
+                            {{ $companySettings->general_email }}
+                        </a>
+                    </li>
                     @endif
                 </ul>
             </div>
