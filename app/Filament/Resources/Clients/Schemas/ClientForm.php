@@ -20,8 +20,8 @@ class ClientForm
                     ->directory('clients')
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
                     ->maxSize(5120)
-                    ->saveUploadedFileUsing(fn ($file) => app(\App\Services\ImageService::class)->saveImage($file, 'clients'))
-                    ->deleteUploadedFileUsing(fn ($file) => app(\App\Services\ImageService::class)->deleteImage($file))
+                    ->saveUploadedFileUsing(fn($file) => app(\App\Services\ImageService::class)->saveImage($file, 'clients'))
+                    ->deleteUploadedFileUsing(fn($file) => app(\App\Services\ImageService::class)->deleteImage($file))
                     ->default(null),
                 TextInput::make('website')->label('الموقع الإلكتروني')
                     ->url()

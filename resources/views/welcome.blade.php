@@ -217,11 +217,13 @@
     @if($homepageSettings->show_clients && $clients->count() > 0)
     <div class="py-16 bg-gray-50 border-t border-gray-100">
         <div class="container px-4 mx-auto max-w-7xl">
-            <h2 class="mb-10 text-2xl font-bold tracking-wider text-center text-gray-400 uppercase">{{ __('عملائنا وشركائنا') }}</h2>
-            <div class="flex flex-wrap gap-8 justify-center items-center opacity-70 md:gap-16">
+            <h2 class="mb-10 text-2xl font-bold tracking-wider text-center text-gray-700 uppercase">{{ __('عملائنا وشركائنا') }}</h2>
+            <div class="flex flex-wrap gap-10 justify-center items-center md:gap-16">
                 @foreach($clients as $client)
                     @if($client->logo)
-                        <img src="{{ $client->imageUrl('logo') }}" alt="{{ $client->name }}" class="object-contain h-12 grayscale transition duration-300 md:h-16 hover:grayscale-0">
+                        <div class="flex justify-center items-center w-28 h-16 md:w-40 md:h-24">
+                            <img src="{{ $client->imageUrl('logo') }}" alt="{{ $client->name }}" class="object-contain w-full h-full transition-transform duration-300 hover:scale-110 cursor-pointer">
+                        </div>
                     @endif
                 @endforeach
             </div>
