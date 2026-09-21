@@ -91,6 +91,26 @@ class PageController extends Controller
         return view('projects.show', compact('project'));
     }
 
+    public function products()
+    {
+        $products = \App\Models\Product::where('active', true)->orderBy('sort_order')->paginate(12);
+        return view('products.index', compact('products'));
+    }
+
+    public function productShow(\App\Models\Product $product)
+    {
+        if (!$product->active) {
+            abort(404);
+        }
+        return view('products.show', compact('product'));
+    }
+
+    public function clients()
+    {
+        $clients = \App\Models\Client::where('active', true)->orderBy('sort_order')->paginate(16);
+        return view('clients.index', compact('clients'));
+    }
+
     public function industries()
     {
         $industries = Industry::where('active', true)->orderBy('sort_order')->get();

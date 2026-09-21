@@ -25,6 +25,11 @@ Route::get('/services/{service:slug}', [PageController::class, 'serviceShow'])->
 Route::get('/projects', [PageController::class, 'projects'])->name('projects.index');
 Route::get('/projects/{project}', [PageController::class, 'projectShow'])->name('projects.show');
 
+Route::get('/products', [PageController::class, 'products'])->name('products.index');
+Route::get('/products/{product:slug}', [PageController::class, 'productShow'])->name('products.show');
+
+Route::get('/clients', [PageController::class, 'clients'])->name('clients.index');
+
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/equipment', [PageController::class, 'equipment'])->name('equipment.index');
 Route::get('/equipment/{equipment:slug}', [PageController::class, 'equipmentShow'])->name('equipment.show');
