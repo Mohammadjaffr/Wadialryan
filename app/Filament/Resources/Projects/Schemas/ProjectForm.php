@@ -10,6 +10,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
+use Filament\Forms\Components\Select;
 
 class ProjectForm
 {
@@ -73,11 +74,20 @@ class ProjectForm
                     ->required(),
                 TextInput::make('category')->label('التصنيف')
                     ->default(null),
-                TextInput::make('project_status')->label('الحالة')
+                Select::make('project_status')
+                    ->label('الحالة')
+                    ->options([
+                        'under_study' => 'قيد الدراسة',
+                        'approved'    => 'معتمد / تمت الترسية',
+                        'in_progress' => 'قيد التنفيذ',
+                        'suspended'   => 'متوقف مؤقتاً',
+                        'completed'   => 'مكتمل',
+                        'delivered'   => 'تم التسليم النهائي',
+                    ])
                     ->default(null),
                 DatePicker::make('start_date')->label('تاريخ البدء'),
                 DatePicker::make('completion_date')->label('تاريخ الانتهاء'),
-                
+
                 \Filament\Forms\Components\Select::make('client_id')->label('العميل')
                     ->relationship('client', 'name')
                     ->searchable()
@@ -85,23 +95,23 @@ class ProjectForm
                     ->default(null),
                 \Filament\Forms\Components\Select::make('industry_id')->label('القطاع')
                     ->relationship('industry', 'name')
-                    ->getOptionLabelFromRecordUsing(fn ($record) => $record->getTranslation('name', 'ar'))
+                    ->getOptionLabelFromRecordUsing(fn($record) => $record->getTranslation('name', 'ar'))
                     ->searchable()
                     ->preload()
                     ->default(null),
 
                 FileUpload::make('main_image')->label('الصورة الرئيسية')
                     ->image()->disk('public')->directory('projects')->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp', 'image/jpg'])->maxSize(5120),
-                
+
                 // Array fields
                 FileUpload::make('gallery')->label('معرض الصور')
-                    ->multiple()->image()->disk('public')->directory('projects/gallery')->columnSpanFull(),
+                    ->multiple()->maxFiles(8)->image()->disk('public')->directory('projects/gallery')->columnSpanFull(),
                 FileUpload::make('before_gallery')->label('صور قبل')
-                    ->multiple()->image()->disk('public')->directory('projects/before')->columnSpanFull(),
+                    ->multiple()->maxFiles(3)->image()->disk('public')->directory('projects/before')->columnSpanFull(),
                 FileUpload::make('after_gallery')->label('صور بعد')
-                    ->multiple()->image()->disk('public')->directory('projects/after')->columnSpanFull(),
+                    ->multiple()->maxFiles(3)->image()->disk('public')->directory('projects/after')->columnSpanFull(),
                 FileUpload::make('images')->label('صور أخرى (إرث)')
-                    ->multiple()->image()->disk('public')->directory('projects/images')->columnSpanFull(),
+                    ->multiple()->maxFiles(8)->image()->disk('public')->directory('projects/images')->columnSpanFull(),
 
                 Toggle::make('is_featured')->label('مميز')
                     ->required(),

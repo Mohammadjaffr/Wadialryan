@@ -12,17 +12,30 @@ $policies = $hseSettings->policies ?? [];
     <x-slot name="title">{{ $title }}</x-slot>
     
     <!-- Hero Section -->
-    <div class="flex overflow-hidden relative justify-center items-center py-24 bg-gray-900">
-        @if($banner)
-            <img src="{{ $banner }}" alt="{{ $title }}" class="object-cover absolute inset-0 w-full h-full opacity-40">
-        @else
-            <div class="absolute inset-0 bg-gradient-to-r from-emerald-900 to-emerald-700 opacity-90"></div>
-        @endif
-        <div class="container relative z-10 px-4 mx-auto text-center">
-            <h1 class="mb-6 text-4xl font-bold text-white md:text-5xl">{{ $title }}</h1>
-            @if($subtitle)
-                <p class="mx-auto max-w-2xl text-lg text-gray-200 md:text-xl">{{ $subtitle }}</p>
-            @endif
+    <div class="overflow-hidden relative pt-32 pb-20 bg-gray-900 lg:pt-40 lg:pb-32">
+        <div class="absolute inset-0 z-0">
+            <!-- Default Background Cover Image -->
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="HSE Background" class="object-cover w-full h-full opacity-20 mix-blend-luminosity">
+            <div class="absolute inset-0 bg-gradient-to-l from-emerald-900/95 to-gray-900/95"></div>
+            <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-500/20 via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="container relative z-10 px-4 mx-auto">
+            <div class="flex flex-col gap-12 items-center lg:flex-row lg:gap-16">
+                <div class="flex-1 w-full {{ $banner ? 'text-center lg:text-start' : 'text-center' }}">
+                    <h1 class="mb-6 text-4xl font-bold leading-tight text-black drop-shadow-lg md:text-5xl lg:text-6xl">{{ $title }}</h1>
+                    @if($subtitle)
+                        <p class="max-w-2xl text-lg font-medium text-black md:text-xl drop-shadow mx-auto {{ $banner ? 'lg:mx-0' : '' }} leading-relaxed">{{ $subtitle }}</p>
+                    @endif
+                </div>
+                @if($banner)
+                <div class="mx-auto w-full max-w-sm lg:w-1/3 lg:mx-0">
+                    <div class="relative rounded-[2rem] shadow-2xl bg-white p-8 md:p-10 border-4 border-white/10 bg-clip-padding">
+                        <img src="{{ $banner }}" alt="{{ $title }}" class="object-contain w-full h-auto drop-shadow-sm">
+                    </div>
+                </div>
+                @endif
+            </div>
         </div>
     </div>
 
