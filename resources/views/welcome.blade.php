@@ -87,9 +87,9 @@
                         <img src="{{ $service->imageUrl('main_image') }}" class="object-cover w-full h-48">
                     @endif
                     <div class="p-6">
-                        <h3 class="mb-3 text-xl font-bold">{{ $service->getTranslation('title', $locale) }}</h3>
+                        <h3 class="mb-3 text-xl font-bold">{{ __($service->title) }}</h3>
                         <div class="mb-4 text-gray-600 line-clamp-3">
-                            {!! strip_tags($service->getTranslation('short_description', $locale) ?? $service->getTranslation('description', $locale)) !!}
+                            {!! strip_tags(__($service->short_description ?? $service->description)) !!}
                         </div>
                         <a href="{{ route('services.show', $service->slug) }}" class="font-bold text-brand-secondary hover:text-brand-primary">{{ __('التفاصيل') }} &rarr;</a>
                     </div>
@@ -116,7 +116,7 @@
                     @endif
                     <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/80"></div>
                     <div class="absolute right-6 bottom-6 left-6 text-white">
-                        <h3 class="mb-2 text-2xl font-bold">{{ $industry->getTranslation('name', $locale) }}</h3>
+                        <h3 class="mb-2 text-2xl font-bold">{{ __($industry->name) }}</h3>
                     </div>
                 </a>
                 @endforeach
@@ -159,9 +159,9 @@
                         </div>
                     </div>
                     <div class="p-6 bg-gray-50 transition-colors duration-300 group-hover:bg-brand-primary group-hover:text-white">
-                        <h3 class="mb-2 text-xl font-bold">{{ $project->getTranslation('title', $locale) }}</h3>
+                        <h3 class="mb-2 text-xl font-bold">{{ __($project->title) }}</h3>
                         <p class="flex gap-2 items-center text-sm opacity-80">
-                            <x-heroicon-o-map-pin class="w-4 h-4"/> {{ $project->getTranslation('location', $locale) ?? '' }}
+                            <x-heroicon-o-map-pin class="w-4 h-4"/> {{ __($project->location ?? '') }}
                         </p>
                     </div>
                 </a>
@@ -187,7 +187,7 @@
                     @if($item->main_image)
                         <img src="{{ $item->imageUrl('main_image') }}" class="object-cover mb-4 w-full h-40 rounded-lg">
                     @endif
-                    <h3 class="mb-1 text-lg font-bold">{{ $item->getTranslation('name', $locale) }}</h3>
+                    <h3 class="mb-1 text-lg font-bold">{{ __($item->name) }}</h3>
                     <p class="text-sm text-gray-500">{{ $item->manufacturer }} {{ $item->model }}</p>
                 </div>
                 @endforeach
@@ -242,7 +242,7 @@
                         @if($cert->image)
                             <img src="{{ $cert->imageUrl('image') }}" class="object-contain mx-auto mb-4 h-20">
                         @endif
-                        <h3 class="text-sm font-bold">{{ $cert->getTranslation('name', $locale) }}</h3>
+                        <h3 class="text-sm font-bold">{{ __($cert->name) }}</h3>
                     </div>
                 @endforeach
             </div>

@@ -95,7 +95,7 @@
                                 @foreach(\App\Models\Service::all() as $service)
                                     <option value="{{ $service->title }}" class="bg-white"
                                         {{ old('service_requested') == $service->title ? 'selected' : '' }}>
-                                        {{ $service->title }}</option>
+                                        {{ __($service->title) }}</option>
                                 @endforeach
                             </select>
                             <div class="flex absolute inset-y-0 right-5 items-center text-gray-400 pointer-events-none">

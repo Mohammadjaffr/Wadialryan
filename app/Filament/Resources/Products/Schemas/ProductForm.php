@@ -14,12 +14,25 @@ class ProductForm
     {
         return $schema
             ->components([
-                TextInput::make('name')->label('اسم المنتج')
-                    ->required(),
+                \Filament\Schemas\Components\Tabs::make('Translations')
+                    ->tabs([
+                        \Filament\Schemas\Components\Tabs\Tab::make('العربية')
+                            ->schema([
+                                TextInput::make('name.ar')->label('اسم المنتج (عربي)')->required()->columnSpanFull(),
+                                Textarea::make('description.ar')->label('الوصف (عربي)')->default(null)->columnSpanFull(),
+                                TextInput::make('meta_title.ar')->label('عنوان الميتا (عربي)')->default(null)->columnSpanFull(),
+                                Textarea::make('meta_description.ar')->label('وصف الميتا (عربي)')->default(null)->columnSpanFull(),
+                            ]),
+                        \Filament\Schemas\Components\Tabs\Tab::make('English')
+                            ->schema([
+                                TextInput::make('name.en')->label('Product Name (English)')->required()->columnSpanFull(),
+                                Textarea::make('description.en')->label('Description (English)')->default(null)->columnSpanFull(),
+                                TextInput::make('meta_title.en')->label('Meta Title (English)')->default(null)->columnSpanFull(),
+                                Textarea::make('meta_description.en')->label('Meta Description (English)')->default(null)->columnSpanFull(),
+                            ]),
+                    ])->columnSpanFull(),
                 TextInput::make('slug')->label('الرابط اللطيف (Slug)')
-                    ->required(),
-                Textarea::make('description')->label('الوصف')
-                    ->default(null)
+                    ->required()
                     ->columnSpanFull(),
                 \Filament\Forms\Components\FileUpload::make('main_image')->label('الصورة الرئيسية')
                     ->image()
@@ -50,12 +63,7 @@ class ProductForm
                     ->required()
                     ->numeric()
                     ->default(0),
-                TextInput::make('meta_title')->label('عنوان الميتا')
-                    ->default(null)
-                    ->columnSpanFull(),
-                Textarea::make('meta_description')->label('وصف الميتا')
-                    ->default(null)
-                    ->columnSpanFull(),
+
                 \Filament\Forms\Components\FileUpload::make('og_image')->label('صورة المشاركة (OG Image)')
                     ->image()
                     ->disk('public')
