@@ -178,8 +178,8 @@
                     class="relative text-gray-600 transition-colors hover:text-brand-secondary after:absolute after:-bottom-1 after:right-0 after:w-0 after:h-0.5 after:bg-brand-secondary hover:after:w-full after:transition-all after:duration-300">{{ __('خدماتنا') }}</a>
                 <a href="/projects"
                     class="relative text-gray-600 transition-colors hover:text-brand-secondary after:absolute after:-bottom-1 after:right-0 after:w-0 after:h-0.5 after:bg-brand-secondary hover:after:w-full after:transition-all after:duration-300">{{ __('مشاريعنا') }}</a>
-                <a href="/equipment"
-                    class="relative text-gray-600 transition-colors hover:text-brand-secondary after:absolute after:-bottom-1 after:right-0 after:w-0 after:h-0.5 after:bg-brand-secondary hover:after:w-full after:transition-all after:duration-300">{{ __('المعدات') }}</a>
+                {{-- <a href="/equipment"
+                    class="relative text-gray-600 transition-colors hover:text-brand-secondary after:absolute after:-bottom-1 after:right-0 after:w-0 after:h-0.5 after:bg-brand-secondary hover:after:w-full after:transition-all after:duration-300">{{ __('المعدات') }}</a> --}}
                 <a href="/clients"
                     class="relative text-gray-600 transition-colors hover:text-brand-secondary after:absolute after:-bottom-1 after:right-0 after:w-0 after:h-0.5 after:bg-brand-secondary hover:after:w-full after:transition-all after:duration-300">{{ __('العملاء') }}</a>
                 <a href="/products"
