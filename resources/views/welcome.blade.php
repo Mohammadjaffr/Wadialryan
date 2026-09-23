@@ -103,9 +103,40 @@
     </div>
     @endif
 
+    <!-- 04.5 Products -->
+    @if($homepageSettings->show_products && $products->count() > 0)
+    <div class="py-20 bg-gray-50">
+        <div class="container px-4 mx-auto max-w-7xl">
+            <div class="mb-16 text-center">
+                <h2 class="mb-4 text-4xl font-bold text-brand-primary">{{ __('منتجاتنا') }}</h2>
+                <p class="mx-auto max-w-2xl text-gray-600">{{ __('نقدم مجموعة واسعة من المنتجات عالية الجودة لتلبية متطلبات السوق.') }}</p>
+            </div>
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                @foreach($products as $product)
+                <div class="overflow-hidden bg-white rounded-xl shadow-sm transition-all duration-300 transform hover:shadow-xl hover:-translate-y-1">
+                    @if($product->main_image)
+                        <img src="{{ $product->imageUrl('main_image') }}" class="object-cover w-full h-48">
+                    @endif
+                    <div class="p-6">
+                        <h3 class="mb-3 text-xl font-bold">{{ __($product->name) }}</h3>
+                        <div class="mb-4 text-gray-600 line-clamp-3">
+                            {!! strip_tags(__($product->description)) !!}
+                        </div>
+                        <a href="{{ route('products.show', $product->slug) }}" class="font-bold text-brand-secondary hover:text-brand-primary">{{ __('التفاصيل') }} &rarr;</a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <div class="mt-12 text-center">
+                <a href="/products" class="inline-block px-8 py-3 font-bold rounded-lg border-2 transition border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white">{{ __('عرض جميع المنتجات') }}</a>
+            </div>
+        </div>
+    </div>
+    @endif
+
     <!-- 05 Industries -->
     @if($homepageSettings->show_industries && $industries->count() > 0)
-    <div class="py-20 bg-gray-50">
+    <div class="py-20 bg-white">
         <div class="container px-4 mx-auto max-w-7xl">
             <h2 class="mb-16 text-4xl font-bold text-center text-brand-primary">{{ __('القطاعات التي نخدمها') }}</h2>
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -199,7 +230,7 @@
     @endif
 
     <!-- 10 HSE & Quality -->
-    @if(!empty($homepageSettings->hse_intro[$locale]))
+    @if($homepageSettings->show_hse && !empty($homepageSettings->hse_intro[$locale]))
     <div class="py-20 bg-white">
         <div class="container px-4 mx-auto max-w-7xl text-center">
             <h2 class="mb-6 text-4xl font-bold text-brand-primary">{{ __('الصحة والسلامة والجودة') }}</h2>

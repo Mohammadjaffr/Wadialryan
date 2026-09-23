@@ -24,6 +24,8 @@ class HomepageSettings extends Settings
     public array $hse_intro;
     public array $final_cta_content;
 
+    public bool $show_products;
+    public bool $show_hse;
     public bool $show_services;
     public bool $show_projects;
     public bool $show_equipment;

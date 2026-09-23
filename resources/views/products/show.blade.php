@@ -23,7 +23,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                 
                 <!-- Images Gallery -->
-                <div class="space-y-6 min-w-0" x-data="{ 
+                <div class="space-y-6 w-full min-w-0 max-w-full overflow-hidden" x-data="{ 
                     mainImage: '{{ $product->main_image ? $product->imageUrl('main_image') : '' }}',
                     images: [
                         @if($product->main_image) '{{ $product->imageUrl('main_image') }}', @endif
@@ -48,7 +48,7 @@
 
                     <!-- Thumbnails Row -->
                     <template x-if="images.length > 1">
-                        <div class="flex gap-3 overflow-x-auto pb-2 custom-scrollbar">
+                        <div class="flex gap-3 overflow-x-auto pb-2 w-full custom-scrollbar">
                             <template x-for="(img, index) in images" :key="index">
                                 <button @click="mainImage = img" 
                                         class="shrink-0 w-24 h-24 rounded-xl overflow-hidden border-2 shadow-sm bg-white transition-all duration-300 p-1 flex items-center justify-center"
@@ -67,7 +67,7 @@
                     </h2>
                     
                     @if($product->description)
-                        <div class="prose prose-lg max-w-none text-gray-600">
+                        <div class="prose prose-lg max-w-none text-gray-600 break-words">
                             {!! $product->description !!}
                         </div>
                     @endif

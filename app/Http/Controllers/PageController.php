@@ -26,10 +26,11 @@ class PageController extends Controller
         $services = Service::where('is_active', true)->where('is_featured', true)->orderBy('sort_order')->take(6)->get();
         $industries = Industry::where('active', true)->where('featured', true)->orderBy('sort_order')->take(6)->get();
         $equipment = Equipment::where('active', true)->where('featured', true)->orderBy('sort_order')->take(6)->get();
+        $products = \App\Models\Product::where('active', true)->where('featured', true)->orderBy('sort_order')->take(6)->get();
         $clients = \App\Models\Client::where('active', true)->where('featured', true)->orderBy('sort_order')->get();
         $certifications = Certification::where('active', true)->orderBy('sort_order')->take(4)->get();
         
-        return view('welcome', compact('projects', 'services', 'industries', 'equipment', 'clients', 'certifications', 'homepageSettings'));
+        return view('welcome', compact('projects', 'services', 'industries', 'equipment', 'products', 'clients', 'certifications', 'homepageSettings'));
     }
 
     public function about()

@@ -81,6 +81,8 @@ class HomepageSettingsPage extends SettingsPage
 
                 \Filament\Schemas\Components\Section::make('Section Visibility')
                     ->schema([
+                        Forms\Components\Toggle::make('show_products')->label('Show Products'),
+                        Forms\Components\Toggle::make('show_hse')->label('Show HSE (Safety & Quality)'),
                         Forms\Components\Toggle::make('show_services')->label('Show Services'),
                         Forms\Components\Toggle::make('show_projects')->label('Show Projects'),
                         Forms\Components\Toggle::make('show_equipment')->label('Show Equipment'),
