@@ -32,12 +32,10 @@
         </div>
 
         <div class="container relative z-10 px-4 mx-auto md:px-6">
-            @php $services = \App\Models\Service::latest()->get(); @endphp
-
             @forelse($services as $index => $service)
-                <div
-                    class="flex flex-col gap-12 items-center pb-24 mb-24 border-b border-gray-100 lg:flex-row lg:gap-20 last:border-0 last:mb-0 last:pb-0 group">
-                    <div class="lg:w-1/2 w-full {{ $index % 2 == 0 ? 'order-2 lg:order-1' : '' }}">
+                <div id="{{ $service->slug }}"
+                    class="flex flex-col gap-12 items-center pb-24 mb-24 border-b border-gray-100 lg:flex-row lg:gap-20 last:border-0 last:mb-0 last:pb-0 group" style="scroll-margin-top: 120px;">
+                    <div class="lg:w-1/2 w-full order-2 {{ $index % 2 == 0 ? 'lg:order-1' : 'lg:order-2' }}">
                         <div
                             class="inline-flex justify-center items-center mb-8 w-16 h-16 rounded-2xl transition-transform duration-500 bg-brand-primary/5 text-brand-secondary group-hover:scale-110">
                             @if ($service->icon)
@@ -68,22 +66,22 @@
                             </ul>
                         @endif
                     </div>
-                    <div class="lg:w-1/2 w-full {{ $index % 2 == 0 ? 'order-1 lg:order-2' : '' }}">
-                       <div
-    class="aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 flex items-center justify-center group-hover:-translate-y-2 transition-transform duration-500 relative p-6">
-    @if ($service->main_image)
-        <img src="{{ $service->imageUrl('main_image') }}"
-            class="object-contain object-center relative z-10 w-full h-full transition-transform duration-700 group-hover:scale-105"
-            alt="{{ $service->title }}">
-    @else
-        <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop"
-            class="object-cover object-center relative z-10 w-full h-full transition-transform duration-700 group-hover:scale-105"
-            alt="{{ $service->title }}">
-    @endif
-    <div
-        class="absolute inset-0 z-20 transition-colors duration-500 pointer-events-none bg-brand-primary/5 group-hover:bg-transparent">
-    </div>
-</div>
+                    <div class="lg:w-1/2 w-full order-1 {{ $index % 2 == 0 ? 'lg:order-2' : 'lg:order-1' }}">
+                        <div
+                            class="aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 bg-gray-100 flex items-center justify-center group-hover:-translate-y-2 transition-transform duration-500 relative p-6">
+                            @if ($service->main_image)
+                                <img src="{{ $service->imageUrl('main_image') }}"
+                                    class="object-contain object-center relative z-10 w-full h-full transition-transform duration-700 group-hover:scale-105"
+                                    alt="{{ $service->title }}">
+                            @else
+                                <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop"
+                                    class="object-cover object-center relative z-10 w-full h-full transition-transform duration-700 group-hover:scale-105"
+                                    alt="{{ $service->title }}">
+                            @endif
+                            <div
+                                class="absolute inset-0 z-20 transition-colors duration-500 pointer-events-none bg-brand-primary/5 group-hover:bg-transparent">
+                            </div>
+                        </div>
                     </div>
                 </div>
             @empty
@@ -92,11 +90,20 @@
                     {{ __('جاري تحديث قائمة الخدمات. يرجى زيارة الصفحة لاحقاً.') }}
                 </div>
             @endforelse
+
+            @if($services->hasPages())
+                <div class="mt-12 flex justify-center">
+                    {{ $services->links() }}
+                </div>
+            @endif
         </div>
     </section>
 
     @push('scripts')
         <style>
+            html {
+                scroll-behavior: smooth;
+            }
             @keyframes fadeInUp {
                 from {
                     opacity: 0;

@@ -1,7 +1,7 @@
 <x-layouts.app :title="($project->meta_title ?? $project->title) . ' | وادي الريان للمقاولات'" :meta-description="$project->meta_description ?? $project->short_description ?? strip_tags($project->description)">
 
     <!-- Project Hero Section -->
-    <section class="relative h-[60vh] min-h-[500px] flex items-end pb-20 overflow-hidden bg-gray-50 mt-20">
+    <section class="relative h-[75vh] md:h-[85vh] min-h-[500px] flex items-end pb-20 overflow-hidden bg-gray-50 mt-20">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0 bg-brand-primary">
             @if ($project->main_image)
@@ -11,7 +11,7 @@
             @else
                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay opacity-30"></div>
             @endif
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/80 to-brand-primary/20"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/40 to-transparent"></div>
         </div>
 
         <div class="relative z-10 container mx-auto px-4 md:px-6">
@@ -78,11 +78,21 @@
                         </div>
                     @endif
                     @if ($project->project_status)
+                        @php
+                            $statusLabels = [
+                                'under_study' => app()->getLocale() == 'en' ? 'Under Study' : 'قيد الدراسة',
+                                'approved'    => app()->getLocale() == 'en' ? 'Approved / Awarded' : 'معتمد / تمت الترسية',
+                                'in_progress' => app()->getLocale() == 'en' ? 'In Progress' : 'قيد التنفيذ',
+                                'suspended'   => app()->getLocale() == 'en' ? 'Suspended' : 'متوقف مؤقتاً',
+                                'completed'   => app()->getLocale() == 'en' ? 'Completed' : 'مكتمل',
+                                'delivered'   => app()->getLocale() == 'en' ? 'Final Handover' : 'تم التسليم النهائي',
+                            ];
+                        @endphp
                         <div class="flex flex-col gap-1">
                             <span class="text-xs text-gray-500 uppercase tracking-wider">{{ __('الحالة') }}</span>
                             <div class="flex items-center gap-2 text-brand-primary">
                                 <x-heroicon-o-check-badge class="w-5 h-5 text-brand-secondary"/>
-                                <span class="text-sm md:text-base font-bold">{{ $project->project_status }}</span>
+                                <span class="text-sm md:text-base font-bold">{{ $statusLabels[$project->project_status] ?? $project->project_status }}</span>
                             </div>
                         </div>
                     @endif
@@ -125,7 +135,7 @@
                             {!! $project->full_description ?? $project->description !!}
                         </div>
                         
-                        @if($project->scope_of_work)
+                        @if(!empty(trim(strip_tags($project->scope_of_work))))
                             <h3 class="text-2xl font-bold text-brand-primary mt-12 mb-6 flex items-center gap-3">
                                 <x-heroicon-o-wrench-screwdriver class="w-8 h-8 text-brand-secondary"/>
                                 {{ __('نطاق العمل') }}
@@ -135,9 +145,9 @@
                             </div>
                         @endif
                         
-                        @if($project->challenges || $project->solutions)
+                        @if(!empty(trim(strip_tags($project->challenges))) || !empty(trim(strip_tags($project->solutions))))
                             <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-                                @if($project->challenges)
+                                @if(!empty(trim(strip_tags($project->challenges))))
                                 <div class="bg-red-50/50 p-8 rounded-3xl border border-red-100">
                                     <h3 class="text-xl font-bold text-red-700 mb-4 flex items-center gap-2">
                                         <x-heroicon-o-exclamation-triangle class="w-6 h-6"/>
@@ -149,7 +159,7 @@
                                 </div>
                                 @endif
                                 
-                                @if($project->solutions)
+                                @if(!empty(trim(strip_tags($project->solutions))))
                                 <div class="bg-green-50/50 p-8 rounded-3xl border border-green-100">
                                     <h3 class="text-xl font-bold text-green-700 mb-4 flex items-center gap-2">
                                         <x-heroicon-o-light-bulb class="w-6 h-6"/>
@@ -163,7 +173,7 @@
                             </div>
                         @endif
 
-                        @if($project->results)
+                        @if(!empty(trim(strip_tags($project->results))))
                             <h3 class="text-2xl font-bold text-brand-primary mt-12 mb-6 flex items-center gap-3">
                                 <x-heroicon-o-chart-bar class="w-8 h-8 text-brand-secondary"/>
                                 {{ __('النتائج والأثر') }}

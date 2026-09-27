@@ -6,6 +6,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Tabs;
@@ -24,20 +25,22 @@ class ProjectForm
                             ->schema([
                                 TextInput::make('title.ar')->label('العنوان بالعربية')
                                     ->required()->columnSpanFull(),
+                                TextInput::make('category.ar')->label('التصنيف بالعربية')
+                                    ->default(null)->columnSpanFull(),
                                 TextInput::make('location.ar')->label('الموقع بالعربية')
                                     ->default(null)->columnSpanFull(),
                                 Textarea::make('short_description.ar')->label('الوصف القصير بالعربية')
                                     ->default(null)->columnSpanFull(),
-                                Textarea::make('full_description.ar')->label('الوصف الكامل بالعربية')
+                                RichEditor::make('full_description.ar')->label('الوصف الكامل بالعربية')
                                     ->default(null)->columnSpanFull(),
 
-                                Textarea::make('scope_of_work.ar')->label('نطاق العمل بالعربية')
+                                RichEditor::make('scope_of_work.ar')->label('نطاق العمل بالعربية')
                                     ->default(null)->columnSpanFull(),
-                                Textarea::make('challenges.ar')->label('التحديات بالعربية')
+                                RichEditor::make('challenges.ar')->label('التحديات بالعربية')
                                     ->default(null)->columnSpanFull(),
-                                Textarea::make('solutions.ar')->label('الحلول بالعربية')
+                                RichEditor::make('solutions.ar')->label('الحلول بالعربية')
                                     ->default(null)->columnSpanFull(),
-                                Textarea::make('results.ar')->label('النتائج بالعربية')
+                                RichEditor::make('results.ar')->label('النتائج بالعربية')
                                     ->default(null)->columnSpanFull(),
                                 TextInput::make('meta_title.ar')->label('عنوان الـ SEO بالعربية')
                                     ->default(null)->columnSpanFull(),
@@ -48,20 +51,22 @@ class ProjectForm
                             ->schema([
                                 TextInput::make('title.en')->label('Title in English')
                                     ->required()->columnSpanFull(),
+                                TextInput::make('category.en')->label('Category in English')
+                                    ->default(null)->columnSpanFull(),
                                 TextInput::make('location.en')->label('Location in English')
                                     ->default(null)->columnSpanFull(),
                                 Textarea::make('short_description.en')->label('Short Description in English')
                                     ->default(null)->columnSpanFull(),
-                                Textarea::make('full_description.en')->label('Full Description in English')
+                                RichEditor::make('full_description.en')->label('Full Description in English')
                                     ->default(null)->columnSpanFull(),
 
-                                Textarea::make('scope_of_work.en')->label('Scope of Work in English')
+                                RichEditor::make('scope_of_work.en')->label('Scope of Work in English')
                                     ->default(null)->columnSpanFull(),
-                                Textarea::make('challenges.en')->label('Challenges in English')
+                                RichEditor::make('challenges.en')->label('Challenges in English')
                                     ->default(null)->columnSpanFull(),
-                                Textarea::make('solutions.en')->label('Solutions in English')
+                                RichEditor::make('solutions.en')->label('Solutions in English')
                                     ->default(null)->columnSpanFull(),
-                                Textarea::make('results.en')->label('Results in English')
+                                RichEditor::make('results.en')->label('Results in English')
                                     ->default(null)->columnSpanFull(),
                                 TextInput::make('meta_title.en')->label('SEO Title in English')
                                     ->default(null)->columnSpanFull(),
@@ -72,8 +77,6 @@ class ProjectForm
 
                 TextInput::make('slug')->label('الرابط')
                     ->required(),
-                TextInput::make('category')->label('التصنيف')
-                    ->default(null),
                 Select::make('project_status')
                     ->label('الحالة')
                     ->options([
@@ -105,13 +108,13 @@ class ProjectForm
 
                 // Array fields
                 FileUpload::make('gallery')->label('معرض الصور')
-                    ->multiple()->maxFiles(8)->image()->disk('public')->directory('projects/gallery')->columnSpanFull(),
+                    ->multiple()->maxFiles(20)->image()->disk('public')->directory('projects/gallery')->columnSpanFull(),
                 FileUpload::make('before_gallery')->label('صور قبل')
-                    ->multiple()->maxFiles(3)->image()->disk('public')->directory('projects/before')->columnSpanFull(),
+                    ->multiple()->maxFiles(10)->image()->disk('public')->directory('projects/before')->columnSpanFull(),
                 FileUpload::make('after_gallery')->label('صور بعد')
-                    ->multiple()->maxFiles(3)->image()->disk('public')->directory('projects/after')->columnSpanFull(),
+                    ->multiple()->maxFiles(10)->image()->disk('public')->directory('projects/after')->columnSpanFull(),
                 FileUpload::make('images')->label('صور أخرى (إرث)')
-                    ->multiple()->maxFiles(8)->image()->disk('public')->directory('projects/images')->columnSpanFull(),
+                    ->multiple()->maxFiles(20)->image()->disk('public')->directory('projects/images')->columnSpanFull(),
 
                 Toggle::make('is_featured')->label('مميز')
                     ->required(),

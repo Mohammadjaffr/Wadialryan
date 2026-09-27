@@ -81,8 +81,8 @@
                 <p class="mx-auto max-w-2xl text-gray-600">{{ __('نقدم مجموعة متكاملة من الخدمات المتميزة لتلبية احتياجاتك.') }}</p>
             </div>
             <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-                @foreach($services as $service)
-                <div class="overflow-hidden bg-gray-50 rounded-xl transition-all duration-300 transform hover:shadow-xl hover:-translate-y-1">
+                @foreach($services as $index => $service)
+                <div class="overflow-hidden bg-gray-50 rounded-xl transition-all duration-300 transform hover:shadow-xl hover:-translate-y-1 service-card {{ $index >= 3 ? 'hidden' : '' }}">
                     @if($service->main_image)
                         <img src="{{ $service->imageUrl('main_image') }}" class="object-cover w-full h-48">
                     @endif
@@ -91,13 +91,18 @@
                         <div class="mb-4 text-gray-600 line-clamp-3">
                             {!! strip_tags(__($service->short_description ?? $service->description)) !!}
                         </div>
-                        <a href="{{ route('services.show', $service->slug) }}" class="font-bold text-brand-secondary hover:text-brand-primary">{{ __('التفاصيل') }} &rarr;</a>
+                        <a href="{{ route('services.index') }}#{{ $service->slug }}" class="font-bold text-brand-secondary hover:text-brand-primary">{{ __('التفاصيل') }} &rarr;</a>
                     </div>
                 </div>
                 @endforeach
             </div>
-            <div class="mt-12 text-center">
-                <a href="/services" class="inline-block px-8 py-3 font-bold rounded-lg border-2 transition border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white">{{ __('عرض جميع الخدمات') }}</a>
+            @if($services->count() > 3)
+            <div class="mt-12 text-center" id="show-more-services">
+                <button type="button" onclick="document.querySelectorAll('.service-card.hidden').forEach(el => el.classList.remove('hidden')); this.parentElement.style.display='none';" class="inline-block px-8 py-3 font-bold rounded-lg border-2 transition border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white">{{ __('عرض المزيد') }}</button>
+            </div>
+            @endif
+            <div class="mt-6 text-center">
+                <a href="/services" class="inline-block font-bold text-brand-secondary hover:underline">{{ __('عرض جميع الخدمات') }}</a>
             </div>
         </div>
     </div>

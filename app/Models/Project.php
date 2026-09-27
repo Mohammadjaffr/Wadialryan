@@ -24,6 +24,7 @@ class Project extends Model
 
     public $translatable = [
         'title',
+        'category',
         'location',
         'short_description',
         'full_description',
