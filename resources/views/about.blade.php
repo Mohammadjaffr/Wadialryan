@@ -66,7 +66,7 @@
     </section>
 
     <!-- Certifications Section -->
-    <section class="py-24 bg-gray-50 border-t border-gray-100">
+    {{-- <section class="py-24 bg-gray-50 border-t border-gray-100">
         <div class="container px-4 mx-auto max-w-7xl md:px-6">
             <div class="mb-16 text-center">
                 <span
@@ -101,7 +101,7 @@
                 @endforelse
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- HSE Section -->
     <section class="overflow-hidden relative py-24 bg-brand-primary">

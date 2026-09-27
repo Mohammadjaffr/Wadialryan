@@ -228,5 +228,7 @@
     "in_progress": "In Progress",
     "suspended": "Suspended",
     "completed": "Completed",
-    "delivered": "Final Handover"
+    "delivered": "Final Handover",
+    "لا توجد صور إضافية للمشروع.":"No additional photos for the project.",
+    "استفسر عن مشروع مماثل":"Inquire about a similar project"
 }
