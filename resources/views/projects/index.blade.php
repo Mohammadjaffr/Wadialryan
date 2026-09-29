@@ -74,10 +74,10 @@
                                         <x-heroicon-o-map-pin class="w-4 h-4"/>
                                         {{ $project->location ?? __('الموقع غير محدد') }}
                                     </span>
-                                    <div class="flex items-center text-sm font-bold text-brand-primary transition-colors group-hover:text-brand-secondary">
+                                    <!-- <div class="flex items-center text-sm font-bold text-brand-primary transition-colors group-hover:text-brand-secondary">
                                         {{ __('عرض التفاصيل') }}
                                         <x-heroicon-o-arrow-right class="mx-2 w-4 h-4 transition-transform transform rtl:rotate-180 group-hover:{{ app()->getLocale() == 'ar' ? '-translate-x-1' : 'translate-x-1' }}"/>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </a>
