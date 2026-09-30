@@ -22,7 +22,6 @@
 
         <div class="container relative z-10 px-4 mx-auto md:px-6">
             @php 
-                $projects = \App\Models\Project::latest()->get(); 
                 $categories = $projects->pluck('category')->unique()->filter()->values();
             @endphp
             

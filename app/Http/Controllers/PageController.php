@@ -68,7 +68,7 @@ class PageController extends Controller
 
     public function projects()
     {
-        $projects = Project::where('is_active', true)->orderBy('sort_order')->paginate(12);
+        $projects = Project::where('is_active', true)->orderBy('sort_order')->get();
         return view('projects.index', compact('projects'));
     }
 

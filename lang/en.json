@@ -231,5 +231,13 @@
     "delivered": "Final Handover",
     "لا توجد صور إضافية للمشروع.":"No additional photos for the project.",
     "استفسر عن مشروع مماثل":"Inquire about a similar project",
-    "اتصل بنا":"Contact Us"
+    "اتصل بنا":"Contact Us",
+    "تاريخ البدء":"Start Date",
+    "القطاع":"Sector",
+    "تاريخ الإنجاز":"Completion Date",
+    "الحالة":"Status",
+    "اتصل بنا الآن":"Contact Us Now",
+    "أبرز مشاريعنا" :"Our Featured Projects",
+    "سجل حافل بالنجاحات والإنجازات." : "A proven track record of success and achievements.",
+    "عرض الكل" : "View All"
 }
